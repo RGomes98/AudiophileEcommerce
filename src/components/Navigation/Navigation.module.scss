@@ -1,0 +1,25 @@
+@use '../../stylesheets/variables' as variable;
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-inline: variable.$padding-165;
+  background-color: variable.$eerie-black;
+}
+
+.mainWrapper {
+  gap: 4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-block: 2rem 2.25rem;
+  justify-content: space-between;
+  border-bottom: 1px solid variable.$transparent-white-20;
+}
+
+.navigationWrapper {
+  display: flex;
+  gap: 12.313rem;
+  align-items: center;
+}
