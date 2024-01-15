@@ -1,0 +1,31 @@
+@use 'variables' as variable;
+@use 'mixins' as mixin;
+@use 'reset';
+
+h1 {
+  @include mixin.H1;
+}
+
+h2 {
+  @include mixin.H2;
+}
+
+h3 {
+  @include mixin.H3;
+}
+
+h4 {
+  @include mixin.H4;
+}
+
+h5 {
+  @include mixin.H5;
+}
+
+h6 {
+  @include mixin.H6;
+}
+
+body {
+  @include mixin.BodyFont;
+}

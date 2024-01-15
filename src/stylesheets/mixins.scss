@@ -1,0 +1,101 @@
+@use 'variables' as variable;
+
+//Typography
+@mixin H1 {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-56;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-58;
+  letter-spacing: variable.$letter-spacing-2;
+}
+
+@mixin H2 {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-40;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-44;
+  letter-spacing: variable.$letter-spacing-1-5;
+}
+
+@mixin H3 {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-32;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-36;
+  letter-spacing: variable.$letter-spacing-1-15;
+}
+
+@mixin H4 {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-28;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-38;
+  letter-spacing: variable.$letter-spacing-2;
+}
+
+@mixin H5 {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-24;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-33;
+  letter-spacing: variable.$letter-spacing-1-7;
+}
+
+@mixin H6 {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-18;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-24;
+  letter-spacing: variable.$letter-spacing-1-3;
+}
+
+@mixin Overline {
+  color: variable.$caramel;
+  font-size: variable.$font-14;
+  font-weight: variable.$regular;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-19;
+  letter-spacing: variable.$letter-spacing-10;
+}
+
+@mixin Subtitle {
+  color: variable.$caramel;
+  font-weight: variable.$bold;
+  font-size: variable.$font-13;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-25;
+  letter-spacing: variable.$letter-spacing-1;
+}
+
+@mixin BodyFont {
+  color: variable.$black;
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+}
+
+//Buttons
+@mixin ColoredButton {
+}
+
+@mixin BorderedButton {
+}
+
+@mixin TransparentButton {
+}
+
+//Form Elements
+@mixin TextField {
+}
+
+@mixin SelectField {
+}
+
+@mixin NumberField {
+}
