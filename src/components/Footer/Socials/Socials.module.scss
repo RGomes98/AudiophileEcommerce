@@ -1,0 +1,21 @@
+@use '../../../stylesheets/variables' as variable;
+
+.socialsList {
+  gap: 1rem;
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+
+.socialItem {
+  width: 1.5rem;
+}
+
+.link {
+  color: variable.$white;
+  transition: color variable.$ease-200ms;
+}
+
+.link:hover {
+  color: variable.$caramel;
+}

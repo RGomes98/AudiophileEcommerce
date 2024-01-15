@@ -1,0 +1,63 @@
+@use '../../stylesheets/variables' as variable;
+
+.footer {
+  width: 100%;
+  gap: 2.25rem;
+  display: flex;
+  margin-top: auto;
+  padding-bottom: 3rem;
+  flex-direction: column;
+  background-color: variable.$night;
+  padding-inline: variable.$padding-165;
+}
+
+.navigation {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.logoWrapper {
+  gap: 4.688rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.logoWrapper::before {
+  content: '';
+  width: 6.25rem;
+  height: 0.25rem;
+  background-color: variable.$caramel;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem 12.5rem;
+  font-size: variable.$font-15;
+  justify-content: space-between;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-white-50;
+}
+
+.descriptionWrapper {
+  max-width: 33.75rem;
+}
+
+.description {
+  font-weight: variable.$medium;
+}
+
+.copyright {
+  font-weight: variable.$bold;
+}
+
+@media (width >= 1600px) {
+  .socials {
+    gap: 3.5rem 28rem;
+  }
+
+  .descriptionWrapper {
+    max-width: initial;
+  }
+}
