@@ -2,7 +2,7 @@
 
 //Typography
 @mixin H1 {
-  color: variable.$black;
+  color: variable.$white;
   font-weight: variable.$bold;
   font-size: variable.$font-56;
   text-transform: variable.$all-caps;
@@ -82,6 +82,25 @@
 
 //Buttons
 @mixin ColoredButton {
+  height: 3rem;
+  width: 10rem;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  border: transparent;
+  text-decoration: none;
+  color: variable.$white;
+  justify-content: center;
+  font-weight: variable.$bold;
+  font-size: variable.$font-13;
+  transition: variable.$ease-200ms;
+  text-transform: variable.$all-caps;
+  background-color: variable.$caramel;
+  letter-spacing: variable.$letter-spacing-1;
+
+  &:hover {
+    background-color: variable.$atomic-tangerine;
+  }
 }
 
 @mixin BorderedButton {
@@ -98,4 +117,23 @@
 }
 
 @mixin NumberField {
+}
+
+//Container Standard Padding
+@mixin ContainerPadding($container) {
+  .#{$container} {
+    padding-inline: variable.$padding-165;
+  }
+
+  @media (width <= 1180px) {
+    .#{$container} {
+      padding-inline: variable.$padding-39;
+    }
+  }
+
+  @media (width <= 525px) {
+    .#{$container} {
+      padding-inline: variable.$padding-24;
+    }
+  }
 }

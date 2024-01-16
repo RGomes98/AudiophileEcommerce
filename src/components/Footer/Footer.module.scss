@@ -1,4 +1,5 @@
 @use '../../stylesheets/variables' as variable;
+@use '../../stylesheets/mixins' as mixin;
 
 .footer {
   width: 100%;
@@ -8,8 +9,9 @@
   padding-bottom: 3rem;
   flex-direction: column;
   background-color: variable.$night;
-  padding-inline: variable.$padding-165;
 }
+
+@include mixin.ContainerPadding(footer);
 
 .navigation {
   display: flex;
@@ -62,12 +64,6 @@
   }
 }
 
-@media (width <= 1180px) {
-  .footer {
-    padding-inline: variable.$padding-39;
-  }
-}
-
 @media (width <= 950px) {
   .footer {
     gap: 2rem;
@@ -95,7 +91,6 @@
 @media (width <= 525px) {
   .footer {
     padding-bottom: 2.375rem;
-    padding-inline: variable.$padding-24;
   }
 
   .socials {

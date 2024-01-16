@@ -1,12 +1,14 @@
 @use '../../stylesheets/variables' as variable;
+@use '../../stylesheets/mixins' as mixin;
 
 .navigation {
   width: 100%;
   display: flex;
   align-items: center;
-  padding-inline: variable.$padding-165;
   background-color: variable.$eerie-black;
 }
+
+@include mixin.ContainerPadding(navigation);
 
 .mainWrapper {
   gap: 4rem;
@@ -28,12 +30,6 @@
   width: fit-content;
 }
 
-@media (width <= 1180px) {
-  .navigation {
-    padding-inline: variable.$padding-39;
-  }
-}
-
 @media (width <= 950px) {
   .mainWrapper {
     padding-block: 2rem;
@@ -49,10 +45,6 @@
 }
 
 @media (width <= 525px) {
-  .navigation {
-    padding-inline: variable.$padding-24;
-  }
-
   .navigationWrapper {
     width: 100%;
   }

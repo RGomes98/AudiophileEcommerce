@@ -39,17 +39,4 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-inline: variable.$padding-165;
-}
-
-@media (width <= 1180px) {
-  main {
-    padding-inline: variable.$padding-39;
-  }
-}
-
-@media (width <= 525px) {
-  main {
-    padding-inline: variable.$padding-24;
-  }
 }
