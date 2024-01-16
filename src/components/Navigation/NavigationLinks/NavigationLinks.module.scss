@@ -25,3 +25,11 @@
 .link:hover {
   color: variable.$caramel;
 }
+
+@media (width <= 525px) {
+  .linkList {
+    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+  }
+}

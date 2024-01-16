@@ -23,3 +23,42 @@
   gap: 12.313rem;
   align-items: center;
 }
+
+.linkWrapper {
+  width: fit-content;
+}
+
+@media (width <= 1180px) {
+  .navigation {
+    padding-inline: variable.$padding-39;
+  }
+}
+
+@media (width <= 950px) {
+  .mainWrapper {
+    padding-block: 2rem;
+  }
+
+  .navigationWrapper {
+    gap: 2.625rem;
+  }
+
+  .linkWrapper {
+    display: none;
+  }
+}
+
+@media (width <= 525px) {
+  .navigation {
+    padding-inline: variable.$padding-24;
+  }
+
+  .navigationWrapper {
+    width: 100%;
+  }
+
+  .mainWrapper,
+  .navigationWrapper {
+    gap: initial;
+  }
+}
