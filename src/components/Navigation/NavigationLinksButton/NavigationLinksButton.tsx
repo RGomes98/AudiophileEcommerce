@@ -1,7 +1,7 @@
-import styles from './LinksButton.module.scss';
+import styles from './NavigationLinksButton.module.scss';
 import Image from 'next/image';
 
-export const LinksButton = () => {
+export const NavigationLinksButton = () => {
   return (
     <button className={styles.button} aria-label='categories'>
       <Image
