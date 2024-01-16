@@ -19,3 +19,9 @@
 .link:hover {
   color: variable.$caramel;
 }
+
+@media (width <= 950px) {
+  .socialsList {
+    order: 1;
+  }
+}
