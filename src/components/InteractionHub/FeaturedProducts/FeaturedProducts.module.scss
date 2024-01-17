@@ -1,0 +1,231 @@
+@use '../../../stylesheets/variables' as variable;
+@use '../../../stylesheets/mixins' as mixin;
+
+.featuredList {
+  gap: 3rem;
+  width: 100%;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}
+
+.featuredItem,
+.featuredItem:nth-child(3) > div {
+  display: flex;
+  min-width: 100%;
+  border-radius: 0.5rem;
+}
+
+.featuredItem:nth-child(1) {
+  gap: 3rem;
+  overflow: hidden;
+  padding-top: 6rem;
+  justify-content: center;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  padding-inline: 7.313rem 5.938rem;
+  background-position: -9.5rem -1rem;
+  background-color: variable.$caramel;
+  background-image: url('/assets/pattern-circles.svg');
+}
+
+.featuredItem:nth-child(2) {
+  display: flex;
+  background-size: cover;
+  background-image: url('/assets/images/desktop/image-speaker-zx7.jpg');
+}
+
+.featuredItem:nth-child(3) {
+  gap: 1.875rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.438rem, 1fr));
+}
+
+.featuredItem:nth-child(3) .secondaryWrapper {
+  min-height: 12.5rem;
+  justify-content: center;
+  background-color: variable.$anti-flash-white;
+}
+
+.imageWrapper {
+  bottom: -1rem;
+  position: relative;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  max-width: 25.625rem;
+}
+
+.mainWrapper {
+  gap: 1.5rem;
+  display: flex;
+  margin-top: 2.313rem;
+  max-width: 21.875rem;
+  flex-direction: column;
+}
+
+.mainHeading {
+  max-width: 16.25rem;
+  color: variable.$white;
+  font-weight: variable.$bold;
+  font-size: variable.$font-56;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-58;
+  letter-spacing: variable.$letter-spacing-2;
+}
+
+.mainDescription {
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-white-75;
+}
+
+.secondaryWrapper {
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding-block: 6.313rem;
+  padding-inline: 5.938rem 0rem;
+}
+
+.heading {
+  font-weight: variable.$bold;
+  font-size: variable.$font-28;
+  text-transform: variable.$all-caps;
+  letter-spacing: variable.$letter-spacing-2;
+}
+
+.link {
+  @include mixin.DefaultButton(bordered, black);
+}
+
+.mainWrapper .link {
+  margin-top: 1rem;
+  @include mixin.DefaultButton(colored, black);
+}
+
+.emptyBackground {
+  min-height: 12.5rem;
+  background-size: cover;
+  background-image: url('/assets/images/desktop/image-earphones-yx1.jpg');
+}
+
+@media (width >= 1600px) {
+  .featuredItem:nth-child(1) {
+    background-position: 0rem top;
+    justify-content: space-around;
+  }
+}
+
+@media (width <= 1290px) {
+  .featuredItem:nth-child(1) {
+    padding-inline: 4.313rem 2.938rem;
+  }
+}
+
+@media (width <= 1180px) {
+  .featuredList {
+    gap: 2rem;
+  }
+
+  .featuredItem:nth-child(1) {
+    gap: 4rem;
+    align-items: center;
+    flex-direction: column;
+    padding-inline: 9.625rem;
+    padding-block: 3.25rem 4rem;
+    background-position: center -17.5rem;
+  }
+
+  .imageWrapper {
+    bottom: initial;
+  }
+
+  .mainImage {
+    max-width: 12.5rem;
+  }
+
+  .mainWrapper {
+    margin-top: initial;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (width <= 950px) {
+  .featuredItem:nth-child(2) {
+    background-position: center;
+    background-image: url('/assets/images/tablet/image-speaker-zx7.jpg');
+  }
+
+  .featuredItem:nth-child(3) {
+    gap: 0.688rem;
+  }
+
+  .featuredItem:nth-child(3) .secondaryWrapper {
+    padding-inline: 2.563rem 3.188rem;
+  }
+
+  .emptyBackground {
+    background-size: cover;
+    background-image: url('/assets/images/tablet/image-earphones-yx1.jpg');
+  }
+}
+
+@media (width <= 695px) {
+  .emptyBackground {
+    background-size: cover;
+    background-image: url('/assets/images/mobile/image-earphones-yx1.jpg');
+  }
+
+  .featuredItem:nth-child(3) {
+    gap: 1.5rem;
+  }
+
+  .featuredItem:nth-child(3) .secondaryWrapper {
+    padding-inline: 1.5rem;
+    padding-block: 2.563rem;
+  }
+}
+
+@media (width <= 550px) {
+  .featuredList {
+    gap: 1.5rem;
+  }
+
+  .featuredItem:nth-child(1) {
+    gap: 2rem;
+    background-size: cover;
+    padding-inline: 1.3rem;
+    padding-block: 3.438rem;
+    background-position: center -8.5rem;
+  }
+
+  .featuredItem:nth-child(2) {
+    background-position: center;
+    background-image: url('/assets/images/mobile/image-speaker-zx7.jpg');
+  }
+
+  .mainImage {
+    max-width: 10.625rem;
+  }
+
+  .mainHeading {
+    max-width: 15.5rem;
+    font-size: variable.$font-36;
+    line-height: variable.$line-height-40;
+    letter-spacing: variable.$letter-spacing-1-3;
+  }
+
+  .mainWrapper .link {
+    margin-top: initial;
+  }
+
+  .secondaryWrapper {
+    padding-block: 6.313rem;
+    padding-inline: 1.5rem;
+  }
+}
