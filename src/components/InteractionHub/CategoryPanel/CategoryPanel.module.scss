@@ -1,0 +1,110 @@
+@use '../../../stylesheets/variables' as variable;
+@use '../../../stylesheets/mixins' as mixin;
+
+.categoryList {
+  width: 100%;
+  gap: 1.875rem;
+  display: grid;
+  list-style: none;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+}
+
+.categoryLink {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.categoryLink:hover .categoryShop {
+  color: variable.$caramel;
+}
+
+.categoryItem {
+  position: relative;
+  border-radius: 0.5rem;
+  background-color: variable.$anti-flash-white;
+}
+
+.categoryItem:nth-child(1) .imageWrapper {
+  top: -5rem;
+}
+
+.categoryItem:nth-child(2) .imageWrapper {
+  top: -4.5rem;
+}
+
+.categoryItem:nth-child(3) .imageWrapper {
+  top: -3.5rem;
+}
+
+.imageWrapper {
+  position: absolute;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-width: 220px;
+}
+
+.categoryWrapper {
+  display: flex;
+  gap: 0.938rem;
+  align-items: center;
+  flex-direction: column;
+  padding-block: 7.25rem 1.875rem;
+}
+
+.categoryName,
+.categoryShop {
+  user-select: none;
+}
+
+.categoryName {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-18;
+  text-transform: variable.$all-caps;
+  letter-spacing: variable.$letter-spacing-1-3;
+}
+
+.categoryShop {
+  @include mixin.TransparentButton;
+}
+
+@media (width <= 1180px) {
+  .categoryList {
+    gap: 0.625rem;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    max-width: 180px;
+  }
+
+  .categoryWrapper {
+    gap: 1.063rem;
+    padding-block: 5.5rem 1.375rem;
+  }
+
+  .categoryName {
+    font-size: variable.$font-15;
+    letter-spacing: variable.$letter-spacing-1-07;
+  }
+}
+
+@media (width < 768px) {
+  .categoryList {
+    gap: 5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .categoryItem:nth-child(2) {
+    margin-top: 1rem;
+  }
+}
