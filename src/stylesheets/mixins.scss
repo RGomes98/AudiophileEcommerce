@@ -81,7 +81,7 @@
 }
 
 //Buttons
-@mixin ColoredButton {
+@mixin ColoredButton($color) {
   height: 3rem;
   width: 10rem;
   display: flex;
@@ -95,11 +95,20 @@
   font-size: variable.$font-13;
   transition: variable.$ease-200ms;
   text-transform: variable.$all-caps;
-  background-color: variable.$caramel;
   letter-spacing: variable.$letter-spacing-1;
 
-  &:hover {
-    background-color: variable.$atomic-tangerine;
+  @if $color == orange {
+    background-color: variable.$caramel;
+    &:hover {
+      background-color: variable.$atomic-tangerine;
+    }
+  }
+
+  @if $color == black {
+    background-color: variable.$black;
+    &:hover {
+      background-color: variable.$davys-gray;
+    }
   }
 }
 
@@ -107,6 +116,26 @@
 }
 
 @mixin TransparentButton {
+  display: flex;
+  width: 3.75rem;
+  height: 1.125rem;
+  align-items: center;
+  border: transparent;
+  text-decoration: none;
+  background-position: right;
+  font-weight: variable.$bold;
+  font-size: variable.$font-13;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  text-transform: variable.$all-caps;
+  color: variable.$transparent-black-50;
+  transition: color variable.$ease-200ms;
+  letter-spacing: variable.$letter-spacing-1;
+  background-image: url('/assets/icons/icon-arrow-right.svg');
+
+  &:hover {
+    color: variable.$caramel;
+  }
 }
 
 //Form Elements
