@@ -1,3 +1,12 @@
+import { InteractionHub } from '@/components/InteractionHub/InteractionHub';
+import { Featured } from '@/components/Featured/Featured';
+import { Fragment } from 'react';
+
 export default function Home() {
-  return <div>Hello World</div>;
+  return (
+    <Fragment>
+      <Featured />
+      <InteractionHub />
+    </Fragment>
+  );
 }

@@ -1,0 +1,30 @@
+@use '../../stylesheets/variables' as variable;
+@use '../../stylesheets/mixins' as mixin;
+
+.container {
+  width: 100%;
+  gap: 10.5rem;
+  display: flex;
+  flex-direction: column;
+  padding-block: 12.5rem;
+}
+
+@include mixin.ContainerPadding(container);
+
+@media (width <= 1180px) {
+  .container {
+    padding-block: 9.25rem 6rem;
+  }
+}
+
+@media (width <= 1180px) {
+  .container {
+    padding-block: 9.25rem 6rem;
+  }
+}
+
+@media (width < 768px) {
+  .container {
+    padding-block: 7.75rem 7.5rem;
+  }
+}
