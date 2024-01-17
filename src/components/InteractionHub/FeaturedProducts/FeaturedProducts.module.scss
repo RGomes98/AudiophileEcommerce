@@ -32,6 +32,7 @@
 .featuredItem:nth-child(2) {
   display: flex;
   background-size: cover;
+  background-position: center;
   background-image: url('/assets/images/desktop/image-speaker-zx7.jpg');
 }
 
@@ -110,6 +111,7 @@
 .emptyBackground {
   min-height: 12.5rem;
   background-size: cover;
+  background-position: center;
   background-image: url('/assets/images/desktop/image-earphones-yx1.jpg');
 }
 
