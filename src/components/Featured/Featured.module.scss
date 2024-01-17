@@ -51,7 +51,7 @@
 
 .link {
   margin-top: 1rem;
-  @include mixin.ColoredButton(orange);
+  @include mixin.DefaultButton(colored, orange);
 }
 
 @media (width <= 950px) {
