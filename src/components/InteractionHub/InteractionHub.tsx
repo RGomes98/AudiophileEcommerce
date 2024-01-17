@@ -1,3 +1,4 @@
+import { AudiophileShowcase } from './AudiophileShowcase/AudiophileShowcase';
 import { FeaturedProducts } from './FeaturedProducts/FeaturedProducts';
 import { CategoryPanel } from './CategoryPanel/CategoryPanel';
 import styles from './InteractionHub.module.scss';
@@ -7,6 +8,7 @@ export const InteractionHub = () => {
     <section className={styles.container}>
       <CategoryPanel />
       <FeaturedProducts />
+      <AudiophileShowcase />
     </section>
   );
 };

@@ -1,0 +1,88 @@
+@use '../../../stylesheets/variables' as variable;
+@use '../../../stylesheets/mixins' as mixin;
+
+.container {
+  gap: 4rem;
+  display: grid;
+  grid-template-columns: 27.813rem 1fr;
+}
+
+.headingWrapper {
+  gap: 2rem;
+  display: flex;
+  max-width: 27.813rem;
+  flex-direction: column;
+  padding-block: 9.188rem;
+}
+
+.heading {
+  letter-spacing: variable.$letter-spacing-1-43;
+}
+
+.variant {
+  color: variable.$caramel;
+}
+
+.text {
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
+.imageWrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-left: auto;
+  position: relative;
+  max-width: 33.75rem;
+  border-radius: 0.5rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (width >= 1500px) {
+  .imageWrapper {
+    overflow: hidden;
+    max-width: 48rem;
+    position: relative;
+    border-radius: 0.5rem;
+  }
+}
+
+@media (width <= 950px) {
+  .container {
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .headingWrapper {
+    text-align: center;
+    padding-block: 0rem;
+    max-width: 35.813rem;
+    justify-content: center;
+  }
+
+  .imageWrapper {
+    order: -1;
+    width: 100%;
+    max-width: initial;
+    min-height: 18.75rem;
+  }
+}
+
+@media (width <= 550px) {
+  .container {
+    gap: 2.5rem;
+  }
+
+  .heading {
+    line-height: initial;
+    letter-spacing: variable.$letter-spacing-1;
+    font-size: variable.$font-28;
+  }
+}
