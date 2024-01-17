@@ -73,7 +73,7 @@
 }
 
 .categoryShop {
-  @include mixin.TransparentButton;
+  @include mixin.InvisibleButton;
 }
 
 @media (width <= 1180px) {
@@ -98,15 +98,16 @@
   }
 }
 
-@media (width < 768px) {
+@media (width <= 762px) {
+  .categoryList {
+    gap: 5rem 0.625rem;
+  }
+}
+
+@media (width <= 550px) {
   .categoryList {
     gap: 5rem;
-    grid-template-columns: 1fr;
-  }
-
-  .categoryItem {
-    width: 80%;
-    margin: 0 auto;
+    grid-template-columns: 80%;
   }
 
   .categoryItem:nth-child(2) {
@@ -115,7 +116,7 @@
 }
 
 @media (width <= 400px) {
-  .categoryItem {
-    width: 100%;
+  .categoryList {
+    grid-template-columns: 1fr;
   }
 }
