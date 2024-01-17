@@ -13,18 +13,14 @@
 
 @media (width <= 1180px) {
   .container {
+    gap: 6rem;
     padding-block: 9.25rem 6rem;
   }
 }
 
-@media (width <= 1180px) {
+@media (width <= 550px) {
   .container {
-    padding-block: 9.25rem 6rem;
-  }
-}
-
-@media (width < 768px) {
-  .container {
+    gap: 7.5rem;
     padding-block: 7.75rem 7.5rem;
   }
 }
