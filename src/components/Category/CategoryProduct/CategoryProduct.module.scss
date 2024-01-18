@@ -1,0 +1,129 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+  gap: 6rem;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: fit-content(27.813rem) fit-content(33.75rem);
+}
+
+.toggleGrid {
+  grid-template-columns: fit-content(33.75rem) fit-content(27.813rem);
+}
+
+.imageWrapper {
+  order: 1;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.toggleImage {
+  order: 0;
+}
+
+.detailsWrapper {
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headingWrapper {
+  gap: 1rem;
+  display: flex;
+  max-width: 18.125rem;
+  flex-direction: column;
+}
+
+.newProduct {
+  @include mixin.Overline;
+}
+
+.heading {
+  font-weight: variable.$bold;
+  font-size: variable.$font-40;
+  line-height: variable.$line-height-44;
+  letter-spacing: variable.$letter-spacing-1-43;
+}
+
+.text {
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
+.link {
+  margin-top: 0.5rem;
+  @include mixin.DefaultButton(colored, orange);
+}
+
+@media (width <= 1220px) {
+  .detailsWrapper {
+    gap: 1rem;
+  }
+}
+
+@media (width <= 1180px) {
+  .container {
+    gap: 3.25rem;
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrapper {
+    order: initial;
+  }
+
+  .detailsWrapper {
+    gap: 1.5rem;
+    text-align: center;
+    max-width: 35.75rem;
+    align-items: center;
+  }
+
+  .text {
+    margin-top: 0.5rem;
+  }
+
+  .link {
+    margin: initial;
+  }
+}
+
+@media (width <= 550px) {
+  .container {
+    gap: 2rem;
+  }
+
+  .detailsWrapper {
+    max-width: 20.625rem;
+  }
+
+  .headingWrapper {
+    gap: 1.5rem;
+    max-width: 13.125rem;
+  }
+
+  .newProduct {
+    line-height: initial;
+  }
+
+  .heading {
+    line-height: initial;
+    font-size: variable.$font-28;
+  }
+
+  .text {
+    margin-top: initial;
+  }
+}
