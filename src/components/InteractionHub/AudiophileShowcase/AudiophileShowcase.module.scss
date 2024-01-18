@@ -2,17 +2,17 @@
 @use '../../../stylesheets/mixins' as mixin;
 
 .container {
-  gap: 4rem;
+  gap: 6rem;
   display: grid;
-  grid-template-columns: 27.813rem 1fr;
+  justify-content: space-between;
+  grid-template-columns: fit-content(27.813rem) fit-content(50rem);
 }
 
 .headingWrapper {
   gap: 2rem;
   display: flex;
-  max-width: 27.813rem;
   flex-direction: column;
-  padding-block: 9.188rem;
+  justify-content: center;
 }
 
 .heading {
@@ -31,11 +31,9 @@
 }
 
 .imageWrapper {
-  width: 100%;
+  display: flex;
   overflow: hidden;
-  margin-left: auto;
-  position: relative;
-  max-width: 33.75rem;
+  align-content: center;
   border-radius: 0.5rem;
 }
 
@@ -45,33 +43,21 @@
   object-fit: cover;
 }
 
-@media (width >= 1500px) {
-  .imageWrapper {
-    overflow: hidden;
-    max-width: 48rem;
-    position: relative;
-    border-radius: 0.5rem;
-  }
-}
-
-@media (width <= 950px) {
+@media (width <= 1180px) {
   .container {
+    gap: 3.938rem;
     justify-items: center;
     grid-template-columns: 1fr;
   }
 
   .headingWrapper {
     text-align: center;
-    padding-block: 0rem;
-    max-width: 35.813rem;
+    max-width: 35.625rem;
     justify-content: center;
   }
 
   .imageWrapper {
     order: -1;
-    width: 100%;
-    max-width: initial;
-    min-height: 18.75rem;
   }
 }
 
@@ -82,7 +68,7 @@
 
   .heading {
     line-height: initial;
-    letter-spacing: variable.$letter-spacing-1;
     font-size: variable.$font-28;
+    letter-spacing: variable.$letter-spacing-1;
   }
 }

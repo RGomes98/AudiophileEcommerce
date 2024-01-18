@@ -17,14 +17,15 @@ export const AudiophileShowcase = () => {
         </p>
       </div>
       <picture className={styles.imageWrapper}>
-        <source media='(width <= 525px)' srcSet='/assets/images/mobile/image-best-gear.jpg' />
+        <source media='(width <= 550px)' srcSet='/assets/images/mobile/image-best-gear.jpg' />
         <source media='(width <= 1180px)' srcSet='/assets/images/tablet/image-best-gear.jpg' />
         <Image
           className={styles.image}
           src='/assets/images/desktop/image-best-gear.jpg'
           alt='speaker'
           quality={100}
-          fill
+          width={540}
+          height={588}
         />
       </picture>
     </div>
