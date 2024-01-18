@@ -20,7 +20,9 @@ const getProduct = async (categorySlug: Category, productSlug: string) => {
 const getCategoryProducts = async (categorySlug: Category) => {
   if (!categories.includes(categorySlug)) redirect('/');
   const data = await fetchProducts();
-  return data.filter(({ category }) => category === categorySlug);
+  return data
+    .filter(({ category }) => category === categorySlug)
+    .sort(({ new: a }, { new: b }) => Number(b) - Number(a));
 };
 
 export const fetchData = { getProduct, getCategoryProducts };
