@@ -6,7 +6,7 @@
   gap: 10.5rem;
   display: flex;
   flex-direction: column;
-  padding-block: 12.5rem;
+  padding-block: 7.5rem 12.5rem;
 }
 
 @include mixin.ContainerPadding(container);

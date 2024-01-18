@@ -167,6 +167,12 @@
     padding-inline: variable.$padding-165;
   }
 
+  @media (width >= 1600px) {
+    .#{$container} {
+      padding-inline: variable.$padding-285;
+    }
+  }
+
   @media (width <= 1180px) {
     .#{$container} {
       padding-inline: variable.$padding-39;
