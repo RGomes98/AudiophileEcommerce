@@ -6,7 +6,7 @@ export const CategoryPanel = () => {
   return (
     <ul className={styles.categoryList}>
       <li className={styles.categoryItem}>
-        <Link href='#' className={styles.categoryLink}>
+        <Link href='/headphones' className={styles.categoryLink}>
           <div className={styles.imageWrapper}>
             <Image
               className={styles.image}
@@ -24,7 +24,7 @@ export const CategoryPanel = () => {
         </Link>
       </li>
       <li className={styles.categoryItem}>
-        <Link href='#' className={styles.categoryLink}>
+        <Link href='/speakers' className={styles.categoryLink}>
           <div className={styles.imageWrapper}>
             <Image
               className={styles.image}
@@ -42,7 +42,7 @@ export const CategoryPanel = () => {
         </Link>
       </li>
       <li className={styles.categoryItem}>
-        <Link href='#' className={styles.categoryLink}>
+        <Link href='/earphones' className={styles.categoryLink}>
           <div className={styles.imageWrapper}>
             <Image
               className={styles.image}
