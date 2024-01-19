@@ -24,10 +24,7 @@
 }
 
 .text {
-  font-size: variable.$font-15;
-  font-weight: variable.$medium;
-  line-height: variable.$line-height-25;
-  color: variable.$transparent-black-50;
+  @include mixin.Description;
 }
 
 .link {

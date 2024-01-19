@@ -1,10 +1,8 @@
-import type { Product, CategoryImage } from '@/lib/zod/schemas/product.schema';
+import type { CategoryImage } from '@/lib/zod/schemas/product.schema';
 import styles from './ProductImage.module.scss';
 import Image from 'next/image';
 
-type ProductImage = { category: Product['category']; categoryImage: CategoryImage };
-
-export const ProductImage = ({ category, categoryImage }: ProductImage) => {
+export const ProductImage = ({ categoryImage }: { categoryImage: CategoryImage }) => {
   return (
     <picture className={styles.imageWrapper}>
       <source media='(width <= 550px)' srcSet={categoryImage.mobile} />
@@ -12,7 +10,7 @@ export const ProductImage = ({ category, categoryImage }: ProductImage) => {
       <Image
         className={styles.image}
         src={categoryImage.desktop}
-        alt={category}
+        alt='product-image'
         quality={100}
         width={540}
         height={560}

@@ -14,7 +14,7 @@ export const CategoryProduct = (props: CategoryProduct) => {
 
   return (
     <div className={styles.container}>
-      <ProductImage {...{ category, categoryImage }} />
+      <ProductImage {...{ categoryImage }} />
       <div className={styles.detailsWrapper}>
         <ProductTitle {...{ name, isProductNew }} />
         <p className={styles.text}>{description}</p>
