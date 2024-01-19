@@ -5,29 +5,15 @@
   gap: 6rem;
   display: grid;
   justify-content: space-between;
-  grid-template-columns: fit-content(27.813rem) fit-content(33.75rem);
-}
-
-.toggleGrid {
   grid-template-columns: fit-content(33.75rem) fit-content(27.813rem);
 }
 
-.imageWrapper {
+.container:nth-child(even) {
+  grid-template-columns: fit-content(27.813rem) fit-content(33.75rem);
+}
+
+.container:nth-child(even) > picture {
   order: 1;
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  border-radius: 0.5rem;
-}
-
-.image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.toggleImage {
-  order: 0;
 }
 
 .detailsWrapper {
@@ -80,7 +66,11 @@
     grid-template-columns: 1fr;
   }
 
-  .imageWrapper {
+  .container:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .container:nth-child(even) > picture {
     order: initial;
   }
 
