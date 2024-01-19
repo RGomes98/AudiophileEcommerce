@@ -73,6 +73,13 @@
   letter-spacing: variable.$letter-spacing-1;
 }
 
+@mixin Description {
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
 @mixin BodyFont {
   color: variable.$black;
   font-size: variable.$font-15;
