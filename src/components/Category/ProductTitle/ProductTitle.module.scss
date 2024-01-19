@@ -1,0 +1,36 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.headingWrapper {
+  gap: 1rem;
+  display: flex;
+  max-width: 18.15rem;
+  flex-direction: column;
+}
+
+.newProduct {
+  @include mixin.Overline;
+}
+
+.heading {
+  font-weight: variable.$bold;
+  font-size: variable.$font-40;
+  line-height: variable.$line-height-44;
+  letter-spacing: variable.$letter-spacing-1-43;
+}
+
+@media (width <= 550px) {
+  .headingWrapper {
+    gap: 1.5rem;
+    max-width: 13.125rem;
+  }
+
+  .newProduct {
+    line-height: initial;
+  }
+
+  .heading {
+    line-height: initial;
+    font-size: variable.$font-28;
+  }
+}
