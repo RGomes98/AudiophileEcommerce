@@ -1,0 +1,32 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+  gap: 2rem;
+  display: flex;
+  max-width: 39.688rem;
+  flex-direction: column;
+}
+
+.heading {
+}
+
+.text {
+  white-space: pre-line;
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
+@media (width <= 550px) {
+  .container {
+    gap: 1.5rem;
+  }
+
+  .heading {
+    font-size: variable.$font-24;
+    line-height: variable.$line-height-36;
+    letter-spacing: variable.$letter-spacing-0-86;
+  }
+}

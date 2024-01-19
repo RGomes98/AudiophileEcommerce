@@ -1,0 +1,79 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+  gap: 3.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.productWrapper {
+  gap: 6rem;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: fit-content(33.75rem) fit-content(27.813rem);
+}
+
+.headingWrapper {
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  @include mixin.Description;
+}
+
+.price {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-18;
+  letter-spacing: variable.$letter-spacing-1-3;
+}
+
+@media (width <= 1285px) {
+  .headingWrapper {
+    gap: 0.6rem;
+  }
+
+  .headingWrapper h2 {
+    font-size: variable.$font-28;
+    line-height: variable.$line-height-33;
+    letter-spacing: variable.$letter-spacing-1;
+  }
+}
+
+@media (width <= 1180px) {
+  .productWrapper {
+    gap: 4.375rem;
+    justify-content: space-around;
+  }
+
+  .productWrapper picture {
+    max-width: 25rem;
+    min-width: 17.5rem;
+  }
+
+  .headingWrapper {
+    gap: 2rem;
+    justify-content: space-between;
+  }
+}
+
+@media (width <= 762px) {
+  .productWrapper {
+    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .productWrapper picture {
+    max-width: initial;
+    min-width: initial;
+  }
+
+  .headingWrapper {
+    gap: 1.5rem;
+  }
+}

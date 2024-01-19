@@ -1,0 +1,22 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+  gap: 6rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (width <= 1000px) {
+  .container {
+    gap: 7.5rem;
+    flex-direction: column;
+  }
+}
+
+@media (width <= 550px) {
+  .container {
+    gap: 5.5rem;
+    flex-direction: column;
+  }
+}
