@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+export const categories = ['headphones', 'speakers', 'earphones'] as const;
+
 export const image = z.object({
   mobile: z.string(),
   tablet: z.string(),
@@ -33,7 +35,7 @@ export const product = z.object({
   slug: z.string(),
   name: z.string(),
   image: image,
-  category: z.string(),
+  category: z.enum(categories),
   categoryImage: categoryImage,
   new: z.boolean(),
   price: z.number(),

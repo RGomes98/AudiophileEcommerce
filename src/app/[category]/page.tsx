@@ -2,11 +2,12 @@ import { AudiophileShowcase } from '@/components/InteractionHub/AudiophileShowca
 import { CategoryPanel } from '@/components/InteractionHub/CategoryPanel/CategoryPanel';
 import { CategoryHeading } from '@/components/Category/CategoryHeading/CategoryHeading';
 import { CategoryProduct } from '@/components/Category/CategoryProduct/CategoryProduct';
-import { type Category as CategoryType, fetchData } from '@/utils/fetchData';
+import type { Product } from '@/lib/zod/schemas/product.schema';
 import { Category } from '@/components/Category/Category';
+import { fetchData } from '@/utils/fetchData';
 import { Fragment } from 'react';
 
-type Params = { params: { category: CategoryType } };
+type Params = { params: { category: Product['category'] } };
 
 export default async function Page({ params: { category } }: Params) {
   const data = await fetchData.getCategoryProducts(category);
@@ -15,10 +16,10 @@ export default async function Page({ params: { category } }: Params) {
     <Fragment>
       <CategoryHeading heading={category} />
       <Category.Container>
-        {data.map(({ new: isProductNew, name, description, categoryImage, slug, category }, index) => (
+        {data.map(({ new: isProductNew, name, description, categoryImage, slug, category }) => (
           <CategoryProduct
             key={slug}
-            {...Object({ index, isProductNew, name, description, categoryImage, slug, category })}
+            {...{ isProductNew, name, description, categoryImage, slug, category }}
           />
         ))}
         <CategoryPanel />
