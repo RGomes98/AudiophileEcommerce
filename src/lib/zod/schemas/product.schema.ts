@@ -28,6 +28,7 @@ export const other = z.object({
   slug: z.string(),
   name: z.string(),
   image: categoryImage,
+  category: z.enum(categories),
 });
 
 export const product = z.object({
