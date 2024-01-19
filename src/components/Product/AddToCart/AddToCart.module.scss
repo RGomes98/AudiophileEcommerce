@@ -1,0 +1,60 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+  gap: 1rem;
+  display: flex;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.quantityWrapper {
+  width: 7.5rem;
+  display: flex;
+  line-height: 0;
+  align-items: center;
+  padding-block: 0.938rem;
+  padding-inline: 0.969rem;
+  font-weight: variable.$bold;
+  font-size: variable.$font-13;
+  justify-content: space-between;
+  background-color: variable.$white-smoke;
+  letter-spacing: variable.$letter-spacing-1;
+}
+
+.quantityButton {
+  width: 1rem;
+  display: flex;
+  cursor: pointer;
+  height: 1.125rem;
+  align-items: center;
+  border: transparent;
+  justify-content: center;
+  background-color: transparent;
+  color: variable.$transparent-black-25;
+
+  &:hover {
+    color: variable.$caramel;
+  }
+}
+
+.quantity {
+  pointer-events: none;
+  color: variable.$black;
+}
+
+.addButton {
+  @include mixin.DefaultButton(colored, orange);
+}
+
+@media (width <= 1285px) {
+  .container {
+    margin-top: initial;
+  }
+}
+
+@media (width <= 762px) {
+  .container {
+    margin-top: 0.5rem;
+  }
+}

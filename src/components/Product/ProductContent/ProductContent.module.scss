@@ -1,0 +1,59 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+  gap: 2rem;
+  display: flex;
+  min-width: 21.875rem;
+  flex-direction: column;
+}
+
+.heading {
+}
+
+.contentList {
+  gap: 0.5rem;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}
+
+.contentItem {
+  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: variable.$font-15;
+  line-height: variable.$line-height-25;
+}
+
+.quantity {
+  color: variable.$caramel;
+  font-weight: variable.$bold;
+}
+
+.item {
+  font-weight: variable.$medium;
+  color: variable.$transparent-black-50;
+}
+
+@media (width <= 1000px) {
+  .container {
+    max-width: 34.375rem;
+    flex-direction: initial;
+    justify-content: space-between;
+  }
+}
+
+@media (width <= 550px) {
+  .container {
+    gap: 1.5rem;
+    min-width: initial;
+    flex-direction: column;
+  }
+
+  .heading {
+    font-size: variable.$font-24;
+    line-height: variable.$line-height-36;
+    letter-spacing: variable.$letter-spacing-0-86;
+  }
+}

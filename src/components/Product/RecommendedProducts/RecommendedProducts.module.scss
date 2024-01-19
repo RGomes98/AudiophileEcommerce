@@ -1,0 +1,78 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+  gap: 4rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.heading {
+  text-align: center;
+}
+
+.productList {
+  width: 100%;
+  gap: 1.875rem;
+  display: grid;
+  list-style: none;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.productItem {
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.name {
+  margin-top: 0.5rem;
+  line-height: unset;
+}
+
+.link {
+  @include mixin.DefaultButton(colored, orange);
+}
+
+@media (width <= 1180px) {
+  .productList {
+    gap: 0.688rem;
+  }
+}
+
+@media (width <= 762px) {
+  .container {
+    gap: 2.5rem;
+  }
+
+  .heading {
+    font-size: variable.$font-24;
+    letter-spacing: variable.$letter-spacing-0-86;
+  }
+
+  .productList {
+    gap: 3.5rem;
+    justify-content: center;
+    grid-template-columns: 80%;
+  }
+}
+
+@media (width <= 400px) {
+  .productList {
+    grid-template-columns: 1fr;
+  }
+}

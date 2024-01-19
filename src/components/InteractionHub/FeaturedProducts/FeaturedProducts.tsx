@@ -23,7 +23,7 @@ export const FeaturedProducts = () => {
           <p className={styles.mainDescription}>
             Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
           </p>
-          <Link href='#' className={styles.link}>
+          <Link href='/speakers/zx9-speaker' className={styles.link}>
             See Product
           </Link>
         </div>
@@ -31,7 +31,7 @@ export const FeaturedProducts = () => {
       <li className={styles.featuredItem}>
         <div className={styles.secondaryWrapper}>
           <span className={styles.heading}>ZX7 Speaker</span>
-          <Link href='#' className={styles.link}>
+          <Link href='/speakers/zx7-speaker' className={styles.link}>
             See Product
           </Link>
         </div>
@@ -41,7 +41,7 @@ export const FeaturedProducts = () => {
         <div className={styles.emptyBackground}></div>
         <div className={styles.secondaryWrapper}>
           <span className={styles.heading}>YX1 Earphones</span>
-          <Link href='#' className={styles.link}>
+          <Link href='/earphones/yx1-earphones' className={styles.link}>
             See Product
           </Link>
         </div>
