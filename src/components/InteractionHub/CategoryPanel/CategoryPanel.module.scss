@@ -101,12 +101,6 @@
 
 @media (width <= 762px) {
   .categoryList {
-    gap: 5rem 0.625rem;
-  }
-}
-
-@media (width <= 550px) {
-  .categoryList {
     gap: 5rem;
     grid-template-columns: 80%;
   }
