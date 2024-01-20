@@ -1,12 +1,17 @@
+'use client';
+
+import { useAudiophileContext } from '@/hooks/useAudiophileContext';
 import styles from './CategoryPanel.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export const CategoryPanel = () => {
+  const { setIsDropdownActive } = useAudiophileContext();
+
   return (
     <ul className={styles.categoryList}>
       <li className={styles.categoryItem}>
-        <Link href='/headphones' className={styles.categoryLink}>
+        <Link onClick={() => setIsDropdownActive(false)} href='/headphones' className={styles.categoryLink}>
           <div className={styles.imageWrapper}>
             <Image
               className={styles.image}
@@ -24,7 +29,7 @@ export const CategoryPanel = () => {
         </Link>
       </li>
       <li className={styles.categoryItem}>
-        <Link href='/speakers' className={styles.categoryLink}>
+        <Link onClick={() => setIsDropdownActive(false)} href='/speakers' className={styles.categoryLink}>
           <div className={styles.imageWrapper}>
             <Image
               className={styles.image}
@@ -42,7 +47,7 @@ export const CategoryPanel = () => {
         </Link>
       </li>
       <li className={styles.categoryItem}>
-        <Link href='/earphones' className={styles.categoryLink}>
+        <Link onClick={() => setIsDropdownActive(false)} href='/earphones' className={styles.categoryLink}>
           <div className={styles.imageWrapper}>
             <Image
               className={styles.image}

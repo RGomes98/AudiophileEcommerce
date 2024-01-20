@@ -1,0 +1,50 @@
+@use '../../../stylesheets/variables' as variable;
+@use '../../../stylesheets/mixins' as mixin;
+
+.container {
+  width: 100%;
+  z-index: 15;
+  display: none;
+  top: 5.625rem;
+  position: fixed;
+  padding-inline: 2.5rem;
+  transition: transform 350ms;
+  transform: translateY(-100%);
+  padding-block: 3.5rem 4.125rem;
+  background-color: variable.$white;
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+}
+
+.showDropdown {
+  transform: translateY(0);
+}
+
+.overlay {
+  inset: 0;
+  display: none;
+  position: fixed;
+}
+
+.showOverlay {
+  z-index: 10;
+  background-color: variable.$transparent-black-40;
+}
+
+@media (width <= 950px) {
+  .container,
+  .overlay {
+    display: flex;
+  }
+}
+
+@media (width <= 550px) {
+  .container {
+    padding-inline: 1.5rem;
+    padding-block: 2rem 2.25rem;
+
+    & ul {
+      gap: 4.5rem;
+      grid-template-columns: 100%;
+    }
+  }
+}
