@@ -31,14 +31,14 @@
 }
 
 @media (width <= 950px) {
-  .container,
+  .dropdown,
   .overlay {
     display: flex;
   }
 }
 
 @media (width <= 550px) {
-  .container {
+  .dropdown {
     padding-inline: 1.5rem;
     padding-block: 2rem 2.25rem;
 
