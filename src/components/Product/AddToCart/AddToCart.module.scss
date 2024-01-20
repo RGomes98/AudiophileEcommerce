@@ -32,6 +32,7 @@
   justify-content: center;
   background-color: transparent;
   color: variable.$transparent-black-25;
+  transition: color variable.$ease-200ms;
 
   &:hover {
     color: variable.$caramel;

@@ -1,7 +1,7 @@
 @use '../../../stylesheets/variables' as variable;
 @use '../../../stylesheets/mixins' as mixin;
 
-.container {
+.dropdown {
   width: 100%;
   z-index: 15;
   display: none;
