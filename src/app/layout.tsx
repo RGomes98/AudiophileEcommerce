@@ -1,4 +1,5 @@
 import { Navigation } from '@/components/Navigation/Navigation';
+import { ContextProvider } from '@/context/Context';
 import { Footer } from '@/components/Footer/Footer';
 import { Manrope } from 'next/font/google';
 import type { Metadata } from 'next';
@@ -20,9 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body className={manrope.className}>
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
+        <ContextProvider>
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </ContextProvider>
       </body>
     </html>
   );
