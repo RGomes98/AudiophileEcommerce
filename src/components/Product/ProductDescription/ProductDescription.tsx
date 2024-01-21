@@ -11,13 +11,13 @@ type ProductDescription = Pick<Product, 'image' | 'name' | 'description' | 'pric
 };
 
 export const ProductDescription = (props: ProductDescription) => {
-  const { image, name, description, price, id, isProductNew } = props;
+  const { image, name, description, price, isProductNew } = props;
 
   return (
     <div className={styles.container}>
       <BackButton />
       <div className={styles.productWrapper}>
-        <ProductImage categoryImage={image} />
+        <ProductImage width={540} height={560} image={image} />
         <div className={styles.headingWrapper}>
           <ProductTitle {...{ name, isProductNew }} />
           <p className={styles.description}>{description}</p>

@@ -2,18 +2,24 @@ import type { CategoryImage } from '@/lib/zod/schemas/product.schema';
 import styles from './ProductImage.module.scss';
 import Image from 'next/image';
 
-export const ProductImage = ({ categoryImage }: { categoryImage: CategoryImage }) => {
+type ProductImage = {
+  width: number;
+  height: number;
+  image: CategoryImage;
+};
+
+export const ProductImage = ({ width, height, image }: ProductImage) => {
   return (
     <picture className={styles.imageWrapper}>
-      <source media='(width <= 550px)' srcSet={categoryImage.mobile} />
-      <source media='(width <= 1180px)' srcSet={categoryImage.tablet} />
+      <source media='(width <= 550px)' srcSet={image.mobile} />
+      <source media='(width <= 1180px)' srcSet={image.tablet} />
       <Image
         className={styles.image}
-        src={categoryImage.desktop}
+        src={image.desktop}
         alt='product-image'
         quality={100}
-        width={540}
-        height={560}
+        width={width}
+        height={height}
       />
     </picture>
   );
