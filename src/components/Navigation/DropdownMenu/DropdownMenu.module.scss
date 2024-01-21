@@ -27,12 +27,12 @@
 
 .showOverlay {
   z-index: 10;
+  display: initial;
   background-color: variable.$transparent-black-40;
 }
 
 @media (width <= 950px) {
-  .dropdown,
-  .overlay {
+  .dropdown {
     display: flex;
   }
 }
