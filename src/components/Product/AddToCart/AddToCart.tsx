@@ -1,7 +1,9 @@
 'use client';
 
 import type { Product } from '@/lib/zod/schemas/product.schema';
+import { formatProductName } from '@/utils/formatProductName';
 import { useShoppingCart } from '@/hooks/useShoppingCart';
+import { useToast } from '@/hooks/useToast';
 import { useState } from 'react';
 import styles from './AddToCart.module.scss';
 
@@ -9,6 +11,21 @@ export const AddToCart = ({ product }: { product: Product }) => {
   const handleItemQuantity = (action: number) => setItemQuantity((prev) => prev + action);
   const { incrementShoppingCartItem } = useShoppingCart();
   const [itemQuantity, setItemQuantity] = useState(1);
+  const { toasts, createToast } = useToast();
+
+  const productName = formatProductName(product.name, product.category);
+  const itemAmount = itemQuantity === 1 ? 'Item' : 'Items';
+  const toastMessage = `${itemQuantity} ${itemAmount} of ${productName} added to the cart.`;
+
+  const visibleToastsAmount = toasts.filter(({ isVisible }) => isVisible).length;
+  const ACTIVE_TOASTS_LIMIT = 5;
+
+  const handleAddToCart = () => {
+    if (visibleToastsAmount === ACTIVE_TOASTS_LIMIT) return;
+
+    createToast.success(toastMessage, 3000);
+    incrementShoppingCartItem?.(product, itemQuantity);
+  };
 
   return (
     <div className={styles.container}>
@@ -29,7 +46,7 @@ export const AddToCart = ({ product }: { product: Product }) => {
           +
         </button>
       </div>
-      <button className={styles.addButton} onClick={() => incrementShoppingCartItem?.(product, itemQuantity)}>
+      <button className={styles.addButton} onClick={handleAddToCart}>
         Add to Cart
       </button>
     </div>

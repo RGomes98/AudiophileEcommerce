@@ -1,3 +1,4 @@
+import { ToastContainer } from '@/components/Toast/ToastContainer';
 import { Navigation } from '@/components/Navigation/Navigation';
 import { ContextProvider } from '@/context/Context';
 import { Footer } from '@/components/Footer/Footer';
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navigation />
           <main>{children}</main>
           <Footer />
+          <ToastContainer />
         </ContextProvider>
       </body>
     </html>

@@ -1,0 +1,11 @@
+@use '../../stylesheets/variables' as variable;
+@use '../../stylesheets/mixins' as mixin;
+
+.container {
+  top: 8rem;
+  right: 1rem;
+  z-index: 100;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+}
