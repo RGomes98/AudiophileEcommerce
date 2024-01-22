@@ -10,4 +10,9 @@
   background-color: transparent;
   line-height: variable.$line-height-25;
   color: variable.$transparent-black-50;
+  transition: color variable.$ease-200ms;
+
+  &:hover {
+    color: variable.$caramel;
+  }
 }
