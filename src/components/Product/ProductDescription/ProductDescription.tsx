@@ -7,11 +7,12 @@ import { AddToCart } from '../AddToCart/AddToCart';
 import styles from './ProductDescription.module.scss';
 
 type ProductDescription = Pick<Product, 'image' | 'name' | 'description' | 'price' | 'id'> & {
+  product: Product;
   isProductNew: Product['new'];
 };
 
 export const ProductDescription = (props: ProductDescription) => {
-  const { image, name, description, price, isProductNew } = props;
+  const { image, name, description, price, isProductNew, product } = props;
 
   return (
     <div className={styles.container}>
@@ -22,7 +23,7 @@ export const ProductDescription = (props: ProductDescription) => {
           <ProductTitle {...{ name, isProductNew }} />
           <p className={styles.description}>{description}</p>
           <span className={styles.price}>{formatToCurrency(price)}</span>
-          <AddToCart />
+          <AddToCart product={product} />
         </div>
       </div>
     </div>

@@ -1,0 +1,141 @@
+@use '../../../stylesheets/variables' as variable;
+@use '../../../stylesheets/mixins' as mixin;
+
+.container {
+  gap: 1.5rem;
+  width: 100%;
+  display: flex;
+  padding: 2rem;
+  max-width: 23.75rem;
+  border-radius: 0.5rem;
+  flex-direction: column;
+  background-color: variable.$white;
+}
+
+.headingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading {
+  line-height: unset;
+}
+
+.removeAllButton {
+  cursor: pointer;
+  border: transparent;
+  text-decoration: underline;
+  font-size: variable.$font-15;
+  background-color: transparent;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+
+  &:hover {
+    color: variable.$caramel;
+    transition: variable.$ease-200ms;
+  }
+}
+
+.emptyWrapper {
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyText {
+  font-weight: variable.$bold;
+  font-size: variable.$font-18;
+  color: variable.$transparent-black-50;
+}
+
+.cartList {
+  gap: 1.5rem;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}
+
+.cartItem {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-width: 4rem;
+  border-radius: 0.5rem;
+}
+
+.priceWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: variable.$bold;
+  font-size: variable.$font-15;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-25;
+}
+
+.price {
+  font-weight: variable.$bold;
+  font-size: variable.$font-14;
+  color: variable.$transparent-black-50;
+  line-height: variable.$line-height-25;
+}
+
+.checkoutWrapper {
+  gap: 1.5rem;
+  display: flex;
+  margin-top: auto;
+  flex-direction: column;
+}
+
+.totalWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalHeading {
+  font-size: variable.$font-15;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
+.totalPrice {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-18;
+}
+
+.checkoutButton {
+  @include mixin.DefaultButton(colored, orange);
+  width: 100%;
+}
+
+@media (width <= 415px) {
+  .container {
+    padding: 2rem 1.2rem;
+  }
+
+  .cartItem {
+    gap: initial;
+  }
+
+  .priceWrapper {
+    margin-left: 0.8rem;
+  }
+
+  .name {
+    font-size: variable.$font-13;
+  }
+}

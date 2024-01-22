@@ -1,11 +1,14 @@
 'use client';
 
+import type { Product } from '@/lib/zod/schemas/product.schema';
+import { useShoppingCart } from '@/hooks/useShoppingCart';
 import { useState } from 'react';
 import styles from './AddToCart.module.scss';
 
-export const AddToCart = () => {
-  const [itemQuantity, setItemQuantity] = useState(1);
+export const AddToCart = ({ product }: { product: Product }) => {
   const handleItemQuantity = (action: number) => setItemQuantity((prev) => prev + action);
+  const { incrementShoppingCartItem } = useShoppingCart();
+  const [itemQuantity, setItemQuantity] = useState(1);
 
   return (
     <div className={styles.container}>
@@ -26,7 +29,9 @@ export const AddToCart = () => {
           +
         </button>
       </div>
-      <button className={styles.addButton}>Add to Cart</button>
+      <button className={styles.addButton} onClick={() => incrementShoppingCartItem?.(product, itemQuantity)}>
+        Add to Cart
+      </button>
     </div>
   );
 };

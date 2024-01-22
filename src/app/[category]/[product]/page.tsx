@@ -10,7 +10,9 @@ import { fetchData } from '@/utils/fetchData';
 
 type Params = { params: { category: ProductType['category']; product: string } };
 
-export default async function Page({ params: { category, product } }: Params) {
+export default async function Page({ params: { category: categorySlug, product: productSlug } }: Params) {
+  const product = await fetchData.getProduct(categorySlug, productSlug);
+
   const {
     image,
     name,
@@ -22,11 +24,11 @@ export default async function Page({ params: { category, product } }: Params) {
     includes,
     gallery: { first, second, third },
     others: recommendedProducts,
-  } = await fetchData.getProduct(category, product);
+  } = product;
 
   return (
     <Product.Container>
-      <ProductDescription {...{ image, name, description, price, id, isProductNew }} />
+      <ProductDescription {...{ image, name, description, price, id, isProductNew, product }} />
       <ProductDetails {...{ features, includes }} />
       <ProductGallery {...{ first, second, third }} />
       <RecommendedProducts {...{ recommendedProducts }} />

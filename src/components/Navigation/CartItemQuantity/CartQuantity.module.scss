@@ -1,0 +1,34 @@
+@use '../../../stylesheets/variables' as variable;
+@use '../../../stylesheets/mixins' as mixin;
+
+.container {
+  height: 2rem;
+  display: flex;
+  min-width: 6rem;
+  margin-left: auto;
+  align-items: center;
+  padding-block: 0.438rem;
+  padding-inline: 0.719rem;
+  font-weight: variable.$bold;
+  font-size: variable.$font-13;
+  justify-content: space-between;
+  background-color: variable.$white-smoke;
+  letter-spacing: variable.$letter-spacing-1;
+}
+
+.quantityButton {
+  width: 1rem;
+  display: flex;
+  cursor: pointer;
+  height: 1.125rem;
+  align-items: center;
+  border: transparent;
+  justify-content: center;
+  background-color: transparent;
+  color: variable.$transparent-black-25;
+  transition: color variable.$ease-200ms;
+
+  &:hover {
+    color: variable.$caramel;
+  }
+}

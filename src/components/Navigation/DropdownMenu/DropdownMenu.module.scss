@@ -19,6 +19,21 @@
   transform: translateY(0);
 }
 
+.cartMenu {
+  top: 8rem;
+  width: 77%;
+  z-index: 15;
+  display: flex;
+  position: fixed;
+  justify-content: flex-end;
+  transition: transform 450ms;
+  transform: translateY(-200%);
+}
+
+.showCartMenu {
+  transform: translateY(0);
+}
+
 .overlay {
   inset: 0;
   display: none;
@@ -31,6 +46,12 @@
   background-color: variable.$transparent-black-40;
 }
 
+@media (width <= 1180px) {
+  .cartMenu {
+    width: 90%;
+  }
+}
+
 @media (width <= 950px) {
   .dropdown {
     display: flex;
@@ -38,6 +59,11 @@
 }
 
 @media (width <= 550px) {
+  .cartMenu {
+    width: 92%;
+    justify-content: center;
+  }
+
   .dropdown {
     padding-inline: 1.5rem;
     padding-block: 2rem 2.25rem;
