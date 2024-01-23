@@ -74,3 +74,9 @@
     }
   }
 }
+
+@media (height <= 500px) {
+  .cartMenu {
+    top: 7rem;
+  }
+}
