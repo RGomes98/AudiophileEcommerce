@@ -4,9 +4,13 @@ export type Toast = { id: string; message: string; status: 'success' | 'error'; 
 
 export const useToast = () => {
   const { toasts, setToasts } = useAudiophileContext();
-  const uuid = crypto.randomUUID();
+  const activeToastsAmount = toasts.filter(({ isVisible }) => isVisible).length;
+  const ACTIVE_TOASTS_LIMIT = 5;
 
-  const toast = (message: Toast['message'], delay: number, status: Toast['status']) => {
+  const isMaxActiveToastsReached = activeToastsAmount === ACTIVE_TOASTS_LIMIT;
+
+  const createToast = (status: Toast['status'], message: Toast['message'], delay: number) => {
+    const uuid = crypto.randomUUID();
     setToasts((prev) => [...prev, { id: uuid, message, status, isVisible: true }]);
 
     setTimeout(() => {
@@ -15,17 +19,12 @@ export const useToast = () => {
         if (!currentToast) return prev;
 
         currentToast.isVisible = false;
-        return [currentToast, ...prev.filter(({ id }) => id !== uuid)];
+        return [currentToast, ...prev.filter(({ id }) => id !== currentToast.id)];
       });
     }, delay);
 
     setTimeout(() => setToasts((prev) => prev.slice(1)), delay * 2);
   };
 
-  const success = (message: Toast['message'], delay: number) => toast(message, delay, 'success');
-  const error = (message: Toast['message'], delay: number) => toast(message, delay, 'error');
-
-  const createToast = { success, error };
-
-  return { createToast, toasts };
+  return { toasts, isMaxActiveToastsReached, createToast };
 };
