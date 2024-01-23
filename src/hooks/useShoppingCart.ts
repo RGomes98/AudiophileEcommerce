@@ -1,4 +1,4 @@
-import { ShoppingCart, shoppingCartSchema } from '@/lib/zod/schemas/shoppingCart.schema';
+import { type ShoppingCart, shoppingCartSchema } from '@/lib/zod/schemas/shoppingCart.schema';
 import type { Product } from '@/lib/zod/schemas/product.schema';
 import { createShoppingCart } from '@/utils/createShoppingCart';
 import { useAudiophileContext } from './useAudiophileContext';

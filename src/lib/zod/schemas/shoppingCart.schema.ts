@@ -11,7 +11,7 @@ export const cartStructure = {
 };
 
 const quantity = z.object({
-  quantity: z.number().int().nonnegative(),
+  quantity: z.number().int().max(100).nonnegative(),
 });
 
 const cartProduct = productSchema.merge(quantity);

@@ -4,6 +4,7 @@ import styles from './CartQuantity.module.scss';
 
 export const CartQuantity = ({ children, product }: { children: number; product: CartProduct }) => {
   const { incrementShoppingCartItem, decrementShoppingCartItem } = useShoppingCart();
+  const productQuantity = children >= 100 ? 0 : 1;
 
   return (
     <div className={styles.container}>
@@ -17,7 +18,7 @@ export const CartQuantity = ({ children, product }: { children: number; product:
       <span className={styles.quantity}>{children}</span>
       <button
         className={styles.quantityButton}
-        onClick={() => incrementShoppingCartItem?.(product, 1)}
+        onClick={() => incrementShoppingCartItem?.(product, productQuantity)}
         aria-label='increment-button'
       >
         +
