@@ -8,7 +8,7 @@ export const billingDetailsSchema = z.object({
 
 export const shippingInfoSchema = z.object({
   address: z.string().trim().min(1, { message: 'Required.' }),
-  zipCode: z.string().trim().length(5, { message: 'Please enter a valid 5-digit zip code.' }),
+  zipCode: z.string().trim(),
   city: z.string().trim().min(1, { message: 'Required.' }),
   country: z.string().trim().min(1, { message: 'Required.' }),
 });
@@ -16,18 +16,8 @@ export const shippingInfoSchema = z.object({
 export const paymentDetailsSchema = z.object({
   eMoney: z.string().optional(),
   cashOnDelivery: z.string().optional(),
-  eMoneyNumber: z
-    .string()
-    .trim()
-    .length(9, { message: 'Valid 9-digit e-Money Number required.' })
-    .optional()
-    .or(z.literal('')),
-  eMoneyPin: z
-    .string()
-    .trim()
-    .length(4, { message: 'Valid 4-digit e-Money PIN required.' })
-    .optional()
-    .or(z.literal('')),
+  eMoneyNumber: z.string().trim().optional().or(z.literal('')),
+  eMoneyPin: z.string().trim().optional().or(z.literal('')),
 });
 
 export const checkoutSchema = z
@@ -35,18 +25,26 @@ export const checkoutSchema = z
   .merge(billingDetailsSchema)
   .merge(shippingInfoSchema)
   .merge(paymentDetailsSchema)
-  .superRefine(({ eMoney, eMoneyNumber, eMoneyPin }, refinementContext) => {
-    if (eMoney === 'on' && !eMoneyNumber) {
+  .superRefine(({ zipCode, eMoney, eMoneyNumber, eMoneyPin }, refinementContext) => {
+    if (!Number.isInteger(Number(zipCode)) || zipCode?.length !== 5) {
       refinementContext.addIssue({
-        message: 'Required.',
+        message: 'Valid 5-digit zip code required.',
+        code: z.ZodIssueCode.custom,
+        path: ['zipCode'],
+      });
+    }
+
+    if (eMoney === 'on' && (!Number.isInteger(Number(eMoneyNumber)) || eMoneyNumber?.length !== 9)) {
+      refinementContext.addIssue({
+        message: 'Valid 9-digit number required.',
         code: z.ZodIssueCode.custom,
         path: ['eMoneyNumber'],
       });
     }
 
-    if (eMoney === 'on' && !eMoneyPin) {
+    if (eMoney === 'on' && (!Number.isInteger(Number(eMoneyPin)) || eMoneyPin?.length !== 4)) {
       refinementContext.addIssue({
-        message: 'Required.',
+        message: 'Valid 4-digit PIN required.',
         code: z.ZodIssueCode.custom,
         path: ['eMoneyPin'],
       });
