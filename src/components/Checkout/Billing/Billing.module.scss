@@ -1,0 +1,57 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.billingWrapper {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.billingHeading {
+  @include mixin.Subtitle;
+}
+
+.billingList {
+  display: grid;
+  list-style: none;
+  gap: 1.5rem 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.billingItem {
+  min-width: 0;
+  gap: 0.563rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.errorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-weight: variable.$bold;
+  font-size: variable.$font-12;
+  letter-spacing: variable.$letter-spacing-minus-0-21;
+}
+
+.input {
+  @include mixin.TextField;
+}
+
+.invalidLabel {
+  color: variable.$fire-engine-red;
+}
+
+.invalidInput {
+  outline: 2px solid variable.$fire-engine-red;
+}
+
+@media (width <= 762px) {
+  .billingList {
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+}

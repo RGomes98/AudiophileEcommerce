@@ -1,0 +1,9 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.error {
+  font-weight: variable.$bold;
+  font-size: variable.$font-11;
+  color: variable.$fire-engine-red;
+  letter-spacing: variable.$letter-spacing-minus-0-21;
+}

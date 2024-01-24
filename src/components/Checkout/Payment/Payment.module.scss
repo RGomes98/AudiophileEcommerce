@@ -1,0 +1,130 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.label {
+  font-weight: variable.$bold;
+  font-size: variable.$font-12;
+  letter-spacing: variable.$letter-spacing-minus-0-21;
+}
+
+.input {
+  @include mixin.TextField;
+}
+
+.invalidLabel {
+  color: variable.$fire-engine-red;
+}
+
+.invalidInput {
+  outline: 2px solid variable.$fire-engine-red;
+}
+
+.paymentWrapper {
+  gap: 1rem;
+  display: flex;
+  margin-top: 0.625rem;
+  flex-direction: column;
+}
+
+.paymentHeading {
+  @include mixin.Subtitle;
+}
+
+.checkboxWrapper {
+  gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkboxHeading {
+  font-weight: variable.$bold;
+  font-size: variable.$font-12;
+  letter-spacing: variable.$letter-spacing-minus-0-21;
+}
+
+.checkboxList {
+  gap: 1rem;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}
+
+.checkboxItem {
+  @include mixin.SelectField;
+}
+
+.checkbox {
+}
+
+.checkboxLabel {
+  cursor: pointer;
+  font-weight: variable.$bold;
+  font-size: variable.$font-14;
+  letter-spacing: variable.$letter-spacing-minus-0-21;
+}
+
+.eMoneyList {
+  gap: 1rem;
+  display: grid;
+  list-style: none;
+  margin-top: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.eMoneyItem {
+  min-width: 0;
+  display: flex;
+  gap: 0.563rem;
+  flex-direction: column;
+}
+
+.errorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cashWrapper {
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  margin-top: 0.875rem;
+}
+
+.cashImage {
+  width: 100%;
+  height: auto;
+  max-width: 3rem;
+}
+
+.cashText {
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
+@media (width <= 762px) {
+  .checkboxWrapper {
+    flex-direction: column;
+  }
+
+  .checkboxItem {
+    width: 100%;
+  }
+
+  .paymentWrapper {
+    margin-top: initial;
+  }
+
+  .eMoneyList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width <= 550px) {
+  .eMoneyList {
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+}

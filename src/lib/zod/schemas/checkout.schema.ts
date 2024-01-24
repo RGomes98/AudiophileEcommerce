@@ -2,8 +2,8 @@ import { z } from 'zod';
 
 export const billingDetailsSchema = z.object({
   name: z.string().trim().min(1, { message: 'Required.' }),
-  email: z.string().email({ message: 'Wrong format.' }),
-  phone: z.string().regex(new RegExp(/^\+\d{1,3} \d{3}-\d{3}-\d{4}$/), { message: 'Wrong format.' }),
+  email: z.string().email({ message: 'Wrong email format.' }),
+  phone: z.string().regex(new RegExp(/^\+\d{1,3} \d{3}-\d{3}-\d{4}$/), { message: 'Wrong phone format.' }),
 });
 
 export const shippingInfoSchema = z.object({

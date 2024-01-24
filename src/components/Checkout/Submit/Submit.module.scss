@@ -1,0 +1,64 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.button {
+  height: 3rem;
+  display: flex;
+  width: 17.75rem;
+  cursor: pointer;
+  border: transparent;
+  align-items: center;
+  justify-content: center;
+  background-color: variable.$caramel;
+
+  &:hover {
+    background-color: variable.$atomic-tangerine;
+  }
+}
+
+.disabled {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.emptyCart {
+  opacity: 0.6;
+  pointer-events: none;
+  background-color: variable.$battleship-gray;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.text {
+  color: variable.$white;
+  font-weight: variable.$bold;
+  font-size: variable.$font-13;
+  text-transform: variable.$all-caps;
+  letter-spacing: variable.$letter-spacing-1;
+}
+
+.image {
+  width: 100%;
+  right: -2.5rem;
+  position: absolute;
+  max-width: 1.75rem;
+  transition: opacity 200ms ease;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+@media (width <= 1350px) {
+  .button {
+    width: 100%;
+  }
+}

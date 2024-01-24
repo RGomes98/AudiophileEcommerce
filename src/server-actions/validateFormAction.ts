@@ -8,9 +8,13 @@ export type FormInitialState = {
   formState: Checkout;
 };
 
+const fakeDelay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
 export const validateFormAction = async (formInitialState: FormInitialState, formData: FormData) => {
   const form = Object.fromEntries(formData.entries());
   const parsedForm = checkoutSchema.safeParse(form);
+
+  await fakeDelay(3000);
 
   if (!parsedForm.success) {
     const { issues } = parsedForm.error;
@@ -33,8 +37,8 @@ export const validateFormAction = async (formInitialState: FormInitialState, for
         country: String(form.country),
         eMoney: String(form.eMoneySelect),
         cashOnDelivery: String(form.cashOnDeliverySelect),
-        eMoneyNumber: String(form.eMoneyNumber),
-        eMoneyPin: String(form.eMoneyPin),
+        eMoneyNumber: String(form.eMoneyNumber || ''),
+        eMoneyPin: String(form.eMoneyPin || ''),
       },
       status: 'error' as const,
       formErrors: errors,

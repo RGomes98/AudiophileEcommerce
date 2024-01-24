@@ -1,0 +1,65 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+}
+
+.form {
+  gap: 2rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.mainWrapper {
+  width: 100%;
+  gap: 2.5rem;
+  display: flex;
+  max-width: 59.375rem;
+  padding-inline: 3rem;
+  border-radius: 0.5rem;
+  flex-direction: column;
+  padding-block: 3.375rem 3rem;
+  background-color: variable.$white;
+}
+
+.heading {
+}
+
+.formSlices {
+  display: flex;
+  gap: 3.125rem;
+  flex-direction: column;
+}
+
+@media (width <= 1350px) {
+  .mainWrapper {
+    max-width: initial;
+  }
+  .form {
+    flex-direction: column;
+  }
+}
+
+@media (width <= 1180px) {
+  .mainWrapper {
+    padding-block: 1.875rem;
+    padding-inline: 1.75rem;
+  }
+}
+
+@media (width <= 762px) {
+  .mainWrapper {
+    gap: 2rem;
+    padding-block: 1.5rem;
+    padding-inline: 1.5rem;
+  }
+
+  .formSlices {
+    gap: 2rem;
+  }
+
+  .heading {
+    font-size: variable.$font-28;
+    letter-spacing: variable.$letter-spacing-1;
+  }
+}

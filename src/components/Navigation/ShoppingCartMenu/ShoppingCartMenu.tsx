@@ -1,3 +1,4 @@
+import { useAudiophileContext } from '@/hooks/useAudiophileContext';
 import { CartQuantity } from '../CartItemQuantity/CartQuantity';
 import { formatProductName } from '@/utils/formatProductName';
 import { formatToCurrency } from '@/utils/formatToCurrency';
@@ -10,7 +11,10 @@ import Link from 'next/link';
 
 export const ShoppingCartMenu = () => {
   const { validShoppingCart, removeAllShoppingCartItems } = useShoppingCart();
+  const { setIsCartMenuOpen } = useAudiophileContext();
   const { isMounted } = useMounted();
+
+  const isCartFilled = validShoppingCart?.productsList.length;
 
   return (
     <Fragment>
@@ -22,7 +26,7 @@ export const ShoppingCartMenu = () => {
               Remove all
             </button>
           </div>
-          {!validShoppingCart?.productsList.length ? (
+          {!isCartFilled ? (
             <div className={styles.emptyWrapper}>
               <span className={styles.emptyText}>Empty Cart.</span>
             </div>
@@ -52,7 +56,7 @@ export const ShoppingCartMenu = () => {
                 {formatToCurrency(validShoppingCart?.subtotalAmount || 0)}
               </span>
             </div>
-            <Link className={styles.checkoutButton} href='#'>
+            <Link className={styles.checkoutButton} onClick={() => setIsCartMenuOpen(false)} href='/checkout'>
               Checkout
             </Link>
           </div>

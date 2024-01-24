@@ -1,0 +1,66 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.label {
+  font-weight: variable.$bold;
+  font-size: variable.$font-12;
+  letter-spacing: variable.$letter-spacing-minus-0-21;
+}
+
+.input {
+  @include mixin.TextField;
+}
+
+.invalidLabel {
+  color: variable.$fire-engine-red;
+}
+
+.invalidInput {
+  outline: 2px solid variable.$fire-engine-red;
+}
+
+.errorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shippingWrapper {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.shippingHeading {
+  @include mixin.Subtitle;
+}
+
+.shippingList {
+  display: grid;
+  list-style: none;
+  gap: 1.5rem 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.shippingItem {
+  min-width: 0;
+  gap: 0.563rem;
+  display: flex;
+  max-width: initial;
+  flex-direction: column;
+}
+
+.shippingItem:first-child {
+  grid-column: span 2;
+}
+
+@media (width <= 762px) {
+  .shippingList {
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .shippingItem:first-child {
+    grid-column: unset;
+  }
+}
