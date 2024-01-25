@@ -59,13 +59,11 @@ export const useShoppingCart = () => {
 
   const decrementShoppingCartItem = (product: Product) => {
     const cartProduct = validShoppingCart.productsList.find(({ id }) => product.id === id);
+    if (!cartProduct) return;
 
-    if (cartProduct) {
-      const productList = validShoppingCart.productsList.filter(({ id }) => cartProduct.id !== id);
-
-      if (cartProduct.quantity > 1) cartProduct.quantity -= 1;
-      else validShoppingCart.productsList = productList;
-    }
+    const productList = validShoppingCart.productsList.filter(({ id }) => cartProduct.id !== id);
+    if (cartProduct.quantity > 1) cartProduct.quantity -= 1;
+    else validShoppingCart.productsList = productList;
 
     updateShoppingCart(validShoppingCart);
   };

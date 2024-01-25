@@ -20,9 +20,7 @@ export const paymentDetailsSchema = z.object({
   eMoneyPin: z.string().trim().optional().or(z.literal('')),
 });
 
-export const checkoutSchema = z
-  .object({})
-  .merge(billingDetailsSchema)
+export const checkoutSchema = billingDetailsSchema
   .merge(shippingInfoSchema)
   .merge(paymentDetailsSchema)
   .superRefine(({ zipCode, eMoney, eMoneyNumber, eMoneyPin }, refinementContext) => {
