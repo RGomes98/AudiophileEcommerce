@@ -1,0 +1,241 @@
+@use '../../../stylesheets/variables/' as variable;
+@use '../../../stylesheets/mixins.scss' as mixin;
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  border: transparent;
+  outline: transparent;
+  background-color: transparent;
+}
+
+.container::backdrop {
+  background-color: variable.$transparent-black-40;
+}
+
+.wrapper {
+  top: 50%;
+  gap: 2rem;
+  left: 50%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  max-width: 33.75rem;
+  padding-block: 3rem;
+  padding-inline: 3rem;
+  border-radius: 0.5rem;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+  background-color: variable.$white;
+  animation: showModal 200ms ease forwards;
+}
+
+@keyframes showModal {
+  from {
+    scale: -5%;
+  }
+  to {
+    scale: initial;
+  }
+}
+
+.icon {
+  width: 100%;
+  max-width: 4rem;
+}
+
+.headingWrapper {
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  max-width: 16.75rem;
+}
+
+.text {
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
+.detailList {
+  display: grid;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.expand {
+  flex: 0;
+  transition: flex variable.$ease-200ms;
+}
+
+.expandActive {
+  flex: auto;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.disableHiddenMenu {
+  justify-content: center;
+}
+
+.detailList > :first-of-type {
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+  background-color: variable.$anti-flash-white;
+}
+
+.detailList > :last-of-type {
+  padding-inline: 2rem;
+  padding-block: 2.625rem 3rem;
+  background-color: variable.$black;
+}
+
+.itemWrapper {
+  display: flex;
+}
+
+.itemImage {
+  width: 100%;
+  max-width: 3.125rem;
+}
+
+.priceWrapper {
+  display: flex;
+  margin-left: 1rem;
+  flex-direction: column;
+}
+
+.name {
+  color: variable.$black;
+  font-weight: variable.$bold;
+  font-size: variable.$font-15;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-25;
+}
+
+.price {
+  font-weight: variable.$bold;
+  font-size: variable.$font-14;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
+.itemQuantity {
+  margin-left: auto;
+  font-weight: variable.$bold;
+  font-size: variable.$font-15;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-black-50;
+}
+
+.hiddenWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: all variable.$ease-200ms;
+}
+
+.hiddenWrapper > ul {
+  overflow: hidden;
+}
+
+.showHiddenMenu {
+  margin-top: 1rem;
+  grid-template-rows: 1fr;
+}
+
+.otherList {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.otherList > * {
+  overflow: hidden;
+}
+
+.otherItem {
+  display: flex;
+}
+
+.bar {
+  width: 100%;
+  height: 1px;
+  margin-block: 0.75rem;
+  background-color: variable.$transparent-black-8;
+}
+
+.cartQuantity {
+  cursor: pointer;
+  width: fit-content;
+  align-self: center;
+  text-align: center;
+  border: transparent;
+  font-weight: variable.$bold;
+  font-size: variable.$font-12;
+  background-color: transparent;
+  color: variable.$transparent-black-50;
+  letter-spacing: variable.$letter-spacing-minus-0-21;
+}
+
+.totalHeading {
+  margin-bottom: 0.5rem;
+  font-size: variable.$font-15;
+  font-weight: variable.$medium;
+  text-transform: variable.$all-caps;
+  line-height: variable.$line-height-25;
+  color: variable.$transparent-white-50;
+}
+
+.totalPrice {
+  font-weight: variable.$bold;
+  font-size: variable.$font-18;
+}
+
+.button {
+  @include mixin.DefaultButton(colored, orange);
+  width: 100%;
+  margin-top: 0.625rem;
+}
+
+@media (width <= 762px) {
+  .wrapper {
+    gap: 1.5rem;
+    width: 90%;
+    padding-block: 2rem;
+    padding-inline: 2rem;
+  }
+
+  .headingWrapper {
+    gap: 1rem;
+  }
+
+  .heading {
+    font-size: variable.$font-24;
+    line-height: variable.$line-height-28;
+    letter-spacing: variable.$letter-spacing-0-86;
+  }
+
+  .detailList {
+    grid-template-columns: 1fr;
+  }
+
+  .detailList > :last-of-type {
+    padding-inline: 1.5rem;
+    padding-block: 1rem 1.25rem;
+  }
+
+  .button {
+    margin-top: initial;
+  }
+}
