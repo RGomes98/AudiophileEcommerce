@@ -2,15 +2,17 @@ import { type ShoppingCart, shoppingCartSchema } from '@/lib/zod/schemas/shoppin
 import type { Product } from '@/lib/zod/schemas/product.schema';
 import { createShoppingCart } from '@/utils/createShoppingCart';
 import { useAudiophileContext } from './useAudiophileContext';
+import { useEffect } from 'react';
 
 export const useShoppingCart = () => {
   const { shoppingCart, setShoppingCart } = useAudiophileContext();
   const isShoppingCartValid = shoppingCartSchema.safeParse(shoppingCart);
 
-  if (!isShoppingCartValid.success) {
-    createShoppingCart(setShoppingCart);
-    return {};
-  }
+  useEffect(() => {
+    if (!isShoppingCartValid.success) createShoppingCart(setShoppingCart);
+  }, [isShoppingCartValid.success, setShoppingCart]);
+
+  if (!isShoppingCartValid.success) return {};
 
   const { data: validShoppingCart } = isShoppingCartValid;
 
