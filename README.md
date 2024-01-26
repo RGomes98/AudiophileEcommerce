@@ -14,6 +14,7 @@ This repository showcases my solution to the [Audiophile e-commerce challenge on
   - [Next.js Server Components](#nextjs-server-components)
   - [Toast Messager](#toast-messager)
   - [SASS Mixins](#sass-mixins)
+  - [Figma Design Implementation](#figma-design-implementation)
 - [Continued Development](#continued-development)
 
 ## Overview
