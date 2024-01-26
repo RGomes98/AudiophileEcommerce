@@ -43,6 +43,7 @@
 }
 
 .description {
+  max-width: 23.65rem;
   font-size: variable.$font-15;
   font-weight: variable.$medium;
   line-height: variable.$line-height-25;
@@ -69,6 +70,10 @@
     padding-block: 7.875rem 10.438rem;
     align-items: center;
     max-width: 21.875rem;
+  }
+
+  .description {
+    max-width: initial;
   }
 }
 
