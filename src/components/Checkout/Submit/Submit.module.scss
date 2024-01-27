@@ -2,18 +2,8 @@
 @use '../../../stylesheets/mixins.scss' as mixin;
 
 .button {
-  height: 3rem;
-  display: flex;
+  @include mixin.DefaultButton(colored, orange);
   width: 17.75rem;
-  cursor: pointer;
-  border: transparent;
-  align-items: center;
-  justify-content: center;
-  background-color: variable.$caramel;
-
-  &:hover {
-    background-color: variable.$atomic-tangerine;
-  }
 }
 
 .disabled {

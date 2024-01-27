@@ -50,6 +50,11 @@
   width: 100%;
   height: auto;
   max-width: 220px;
+  transition: scale variable.$ease-300ms;
+}
+
+.categoryLink:hover .image {
+  scale: 1.1;
 }
 
 .categoryWrapper {

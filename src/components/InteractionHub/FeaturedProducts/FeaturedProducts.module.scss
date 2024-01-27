@@ -25,7 +25,7 @@
   background-repeat: no-repeat;
   justify-content: space-between;
   padding-inline: 7.313rem 5.938rem;
-  background-position: -9.5rem -1rem;
+  background-position: -10rem -1rem;
   background-color: variable.$caramel;
   background-image: url('/assets/pattern-circles.svg');
 }
@@ -57,7 +57,7 @@
 .mainImage {
   width: 100%;
   height: auto;
-  max-width: 25.625rem;
+  max-width: 24rem;
 }
 
 .mainWrapper {
@@ -118,8 +118,8 @@
 
 @media (width >= 1600px) {
   .featuredItem:nth-child(1) {
-    background-position: 0rem top;
     justify-content: space-around;
+    background-position: -4.5rem top;
   }
 }
 
