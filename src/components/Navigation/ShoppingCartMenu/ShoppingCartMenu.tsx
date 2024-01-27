@@ -4,6 +4,7 @@ import { formatProductName } from '@/utils/formatProductName';
 import { formatToCurrency } from '@/utils/formatToCurrency';
 import { useShoppingCart } from '@/hooks/useShoppingCart';
 import { useMounted } from '@/hooks/useMounted';
+import { useToast } from '@/hooks/useToast';
 import { Fragment } from 'react';
 import styles from './ShoppingCartMenu.module.scss';
 import Image from 'next/image';
@@ -12,9 +13,16 @@ import Link from 'next/link';
 export const ShoppingCartMenu = () => {
   const { validShoppingCart, removeAllShoppingCartItems } = useShoppingCart();
   const { setIsCartMenuOpen } = useAudiophileContext();
+  const { createToast } = useToast();
   const { isMounted } = useMounted();
 
   const isCartFilled = validShoppingCart?.productsList.length;
+
+  const handleRemoveAll = () => {
+    if (!isCartFilled) return;
+    removeAllShoppingCartItems?.();
+    createToast('success', 'Shopping Cart cleared successfully.', 3000);
+  };
 
   return (
     <Fragment>
@@ -22,7 +30,7 @@ export const ShoppingCartMenu = () => {
         <div className={styles.container}>
           <div className={styles.headingWrapper}>
             <h6 className={styles.heading}>Cart({validShoppingCart?.itemCount})</h6>
-            <button className={styles.removeAllButton} onClick={removeAllShoppingCartItems}>
+            <button className={styles.removeAllButton} onClick={handleRemoveAll}>
               Remove all
             </button>
           </div>
