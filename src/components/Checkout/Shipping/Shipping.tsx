@@ -41,6 +41,7 @@ export const Shipping = ({ getInputValue, getInputError }: FormSlice) => {
             maxLength={5}
             defaultValue={getInputValue('zipCode')}
             placeholder='10001'
+            inputMode='numeric'
             name='zipCode'
             type='text'
           />

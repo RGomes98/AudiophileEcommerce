@@ -64,6 +64,7 @@ export const Payment = ({ activeOption, setActiveOption, getInputValue, getInput
               maxLength={9}
               defaultValue={getInputValue('eMoneyNumber')}
               placeholder='238521993'
+              inputMode='numeric'
               name='eMoneyNumber'
               type='text'
             />
@@ -86,6 +87,7 @@ export const Payment = ({ activeOption, setActiveOption, getInputValue, getInput
               maxLength={4}
               defaultValue={getInputValue('eMoneyPin')}
               placeholder='6891'
+              inputMode='numeric'
               name='eMoneyPin'
               type='text'
             />
