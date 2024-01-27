@@ -1,9 +1,15 @@
+import { formatPhoneNumber } from '@/utils/formatPhoneNumber';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { getErrorStyles } from '@/utils/getErrorStyles';
 import { FormSlice } from '../Form/Form';
 import styles from './Billing.module.scss';
 
 export const Billing = ({ getInputValue, getInputError }: FormSlice) => {
+  const handlePhoneInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target.value;
+    event.target.value = formatPhoneNumber(input);
+  };
+
   return (
     <div className={styles.billingWrapper}>
       <span className={styles.billingHeading}>Billing Details</span>
@@ -56,9 +62,11 @@ export const Billing = ({ getInputValue, getInputError }: FormSlice) => {
           </div>
           <input
             className={`${styles.input} ${getErrorStyles(getInputError('phone'), styles.invalidInput)}`}
+            onChange={handlePhoneInput}
             maxLength={17}
             defaultValue={getInputValue('phone')}
             placeholder='+1 202-555-0136'
+            inputMode='numeric'
             name='phone'
             type='text'
           />
