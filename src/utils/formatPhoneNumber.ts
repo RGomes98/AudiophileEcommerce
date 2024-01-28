@@ -12,10 +12,11 @@ export const formatPhoneNumber = (input: string) => {
     return obj;
   }, {} as Slices);
 
-  const firstSlice = phone.length <= 11 ? phone.slice(0, 1) : phone.slice(0, first[0]);
-  const secondSlice = phone.length <= 11 ? phone.slice(1, 4) : phone.slice(second[0], second[1]);
-  const thirdSlice = phone.length <= 11 ? phone.slice(4, 7) : phone.slice(third[0], third[1]);
-  const fourthSlice = phone.length <= 11 ? phone.slice(7) : phone.slice(fourth[0]);
+  const isPhoneLengthLessThanEleven = phone.length <= ONE_DIGIT_COUNTRY_CODE_PHONE_LENGTH;
+  const firstSlice = isPhoneLengthLessThanEleven ? phone.slice(0, 1) : phone.slice(0, first[0]);
+  const secondSlice = isPhoneLengthLessThanEleven ? phone.slice(1, 4) : phone.slice(second[0], second[1]);
+  const thirdSlice = isPhoneLengthLessThanEleven ? phone.slice(4, 7) : phone.slice(third[0], third[1]);
+  const fourthSlice = isPhoneLengthLessThanEleven ? phone.slice(7) : phone.slice(fourth[0]);
 
   if (phone.length > 7) return `+${firstSlice} ${secondSlice}-${thirdSlice}-${fourthSlice}`;
   if (phone.length > 4) return `+${firstSlice} ${secondSlice}-${thirdSlice}`;
