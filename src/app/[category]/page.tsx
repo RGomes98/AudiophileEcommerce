@@ -4,7 +4,7 @@ import { CategoryHeading } from '@/components/Category/CategoryHeading/CategoryH
 import { CategoryProduct } from '@/components/Category/CategoryProduct/CategoryProduct';
 import type { Product } from '@/lib/zod/schemas/product.schema';
 import { Category } from '@/components/Category/Category';
-import { fetchData } from '@/utils/fetchData';
+import { fetchData } from '@/helpers/fetchData';
 import { Fragment } from 'react';
 
 type Params = { params: { category: Product['category'] } };

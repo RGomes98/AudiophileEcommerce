@@ -6,7 +6,7 @@ import { ProductGallery } from '@/components/Product/ProductGallery/ProductGalle
 import { ProductDetails } from '@/components/Product/ProductDetails/ProductDetails';
 import type { Product as ProductType } from '@/lib/zod/schemas/product.schema';
 import { Product } from '@/components/Product/Product';
-import { fetchData } from '@/utils/fetchData';
+import { fetchData } from '@/helpers/fetchData';
 
 type Params = { params: { category: ProductType['category']; product: string } };
 
