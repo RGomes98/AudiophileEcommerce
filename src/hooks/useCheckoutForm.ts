@@ -51,7 +51,7 @@ export const useCheckoutForm = () => {
     const ref = modalRef.current;
     const handleEscapeKey = (event: KeyboardEvent) => {
       const { key } = event;
-      if (key === 'Escape') removeAllShoppingCartItems?.();
+      if (key === 'Escape') removeAllShoppingCartItems();
     };
 
     ref?.addEventListener('keydown', handleEscapeKey);

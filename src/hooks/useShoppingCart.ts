@@ -1,20 +1,9 @@
-import { type ShoppingCart, shoppingCartSchema } from '@/lib/zod/schemas/shoppingCart.schema';
+import { type ShoppingCart } from '@/lib/zod/schemas/shoppingCart.schema';
 import type { Product } from '@/lib/zod/schemas/product.schema';
-import { createShoppingCart } from '@/utils/createShoppingCart';
 import { useAudiophileContext } from './useAudiophileContext';
-import { useEffect } from 'react';
 
 export const useShoppingCart = () => {
   const { shoppingCart, setShoppingCart } = useAudiophileContext();
-  const isShoppingCartValid = shoppingCartSchema.safeParse(shoppingCart);
-
-  useEffect(() => {
-    if (!isShoppingCartValid.success) createShoppingCart(setShoppingCart);
-  }, [isShoppingCartValid.success, setShoppingCart]);
-
-  if (!isShoppingCartValid.success) return {};
-
-  const { data: validShoppingCart } = isShoppingCartValid;
 
   const getShoppingCartSubtotal = (shoppingCart: ShoppingCart) => {
     return shoppingCart.productsList.reduce((subtotal, { price, quantity }) => {
@@ -46,37 +35,37 @@ export const useShoppingCart = () => {
     shoppingCart.totalAmount = totalAmount;
     shoppingCart.itemCount = itemCount;
 
-    setShoppingCart(shoppingCart);
+    setShoppingCart({ ...shoppingCart });
     localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
   };
 
   const incrementShoppingCartItem = (product: Product, quantity: number) => {
-    const cartProduct = validShoppingCart.productsList.find(({ id }) => product.id === id);
+    const cartProduct = shoppingCart.productsList.find(({ id }) => product.id === id);
 
     if (cartProduct) cartProduct.quantity += quantity;
-    else validShoppingCart.productsList.push({ ...product, quantity });
+    else shoppingCart.productsList.push({ ...product, quantity });
 
-    updateShoppingCart(validShoppingCart);
+    updateShoppingCart(shoppingCart);
   };
 
   const decrementShoppingCartItem = (product: Product) => {
-    const cartProduct = validShoppingCart.productsList.find(({ id }) => product.id === id);
+    const cartProduct = shoppingCart.productsList.find(({ id }) => product.id === id);
     if (!cartProduct) return;
 
-    const productList = validShoppingCart.productsList.filter(({ id }) => cartProduct.id !== id);
+    const productList = shoppingCart.productsList.filter(({ id }) => cartProduct.id !== id);
     if (cartProduct.quantity > 1) cartProduct.quantity -= 1;
-    else validShoppingCart.productsList = productList;
+    else shoppingCart.productsList = productList;
 
-    updateShoppingCart(validShoppingCart);
+    updateShoppingCart(shoppingCart);
   };
 
   const removeAllShoppingCartItems = () => {
-    validShoppingCart.productsList = [];
-    updateShoppingCart(validShoppingCart);
+    shoppingCart.productsList = [];
+    updateShoppingCart(shoppingCart);
   };
 
   return {
-    validShoppingCart,
+    shoppingCart,
     incrementShoppingCartItem,
     decrementShoppingCartItem,
     removeAllShoppingCartItems,

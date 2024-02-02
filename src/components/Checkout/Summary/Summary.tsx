@@ -7,10 +7,10 @@ import styles from './Summary.module.scss';
 import Image from 'next/image';
 
 export const Summary = () => {
-  const { validShoppingCart } = useShoppingCart();
+  const { shoppingCart } = useShoppingCart();
   const { isMounted } = useMounted();
 
-  const isCartFilled = validShoppingCart?.productsList.length;
+  const isCartFilled = shoppingCart.productsList.length;
 
   return isMounted ? (
     <div className={styles.container}>
@@ -21,7 +21,7 @@ export const Summary = () => {
         </div>
       ) : (
         <ul className={styles.cartList}>
-          {validShoppingCart?.productsList.map(({ image, name, category, quantity, price }) => {
+          {shoppingCart.productsList.map(({ image, name, category, quantity, price }) => {
             return (
               <li className={styles.cartItem} key={name}>
                 <Image className={styles.image} src={image.cart} alt={name} width={64} height={64} />
@@ -38,28 +38,22 @@ export const Summary = () => {
       <ul className={styles.priceList}>
         <li className={styles.priceItem}>
           <span className={styles.priceHeading}>Total</span>
-          <span className={styles.priceValue}>
-            {formatToCurrency(validShoppingCart?.subtotalAmount || 0)}
-          </span>
+          <span className={styles.priceValue}>{formatToCurrency(shoppingCart.subtotalAmount)}</span>
         </li>
         <li className={styles.priceItem}>
           <span className={styles.priceHeading}>Shipping</span>
-          <span className={styles.priceValue}>
-            {formatToCurrency(validShoppingCart?.shippingTaxAmount || 0)}
-          </span>
+          <span className={styles.priceValue}>{formatToCurrency(shoppingCart.shippingTaxAmount)}</span>
         </li>
         <li className={styles.priceItem}>
           <span className={styles.priceHeading}>VAT (Included)</span>
-          <span className={styles.priceValue}>
-            {formatToCurrency(validShoppingCart?.valueTaxAddedAmount || 0)}
-          </span>
+          <span className={styles.priceValue}>{formatToCurrency(shoppingCart.valueTaxAddedAmount)}</span>
         </li>
         <li className={styles.priceItem}>
           <span className={styles.priceHeading}>Grand Total</span>
-          <span className={styles.priceValue}>{formatToCurrency(validShoppingCart?.totalAmount || 0)}</span>
+          <span className={styles.priceValue}>{formatToCurrency(shoppingCart.totalAmount)}</span>
         </li>
       </ul>
-      <Submit itemCount={validShoppingCart?.itemCount || 0} />
+      <Submit itemCount={shoppingCart.itemCount} />
     </div>
   ) : null;
 };

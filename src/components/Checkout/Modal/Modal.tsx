@@ -8,14 +8,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const Modal = ({ modalRef }: { modalRef: RefObject<HTMLDialogElement> }) => {
-  const { validShoppingCart, removeAllShoppingCartItems } = useShoppingCart();
+  const { shoppingCart, removeAllShoppingCartItems } = useShoppingCart();
   const { isMounted } = useMounted();
 
-  const [firstItem] = (validShoppingCart?.productsList && validShoppingCart.productsList) || [];
+  const { name, category, price, quantity, image } = shoppingCart.productsList[0] || [];
   const [isHiddenMenuActive, setIsHiddenMenuActive] = useState(false);
-  const { name, category, price, quantity, image } = firstItem || {};
 
-  const cartItemCount = validShoppingCart?.itemCount || 0;
+  const cartItemCount = shoppingCart.itemCount;
   const itemMinusCurrent = cartItemCount - 1;
   const itemMessage = (itemMinusCurrent > 1 && '(s)') || '';
 
@@ -48,26 +47,24 @@ export const Modal = ({ modalRef }: { modalRef: RefObject<HTMLDialogElement> }) 
                 className={`${styles.hiddenWrapper} ${(isHiddenMenuActive && styles.showHiddenMenu) || ''}`}
               >
                 <ul className={styles.otherList}>
-                  {validShoppingCart?.productsList
-                    .slice(1)
-                    .map(({ name, category, price, quantity, image }) => {
-                      return (
-                        <li key={name} className={styles.otherItem}>
-                          <Image
-                            className={styles.itemImage}
-                            src={image.cart}
-                            alt={name}
-                            width={50}
-                            height={50}
-                          />
-                          <div className={styles.priceWrapper}>
-                            <span className={styles.name}>{formatProductName(name, category)}</span>
-                            <span className={styles.price}>{formatToCurrency(price)}</span>
-                          </div>
-                          <span className={styles.itemQuantity}>x{quantity}</span>
-                        </li>
-                      );
-                    })}
+                  {shoppingCart.productsList.slice(1).map(({ name, category, price, quantity, image }) => {
+                    return (
+                      <li key={name} className={styles.otherItem}>
+                        <Image
+                          className={styles.itemImage}
+                          src={image.cart}
+                          alt={name}
+                          width={50}
+                          height={50}
+                        />
+                        <div className={styles.priceWrapper}>
+                          <span className={styles.name}>{formatProductName(name, category)}</span>
+                          <span className={styles.price}>{formatToCurrency(price)}</span>
+                        </div>
+                        <span className={styles.itemQuantity}>x{quantity}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ) : null}
@@ -86,7 +83,7 @@ export const Modal = ({ modalRef }: { modalRef: RefObject<HTMLDialogElement> }) 
           <li className={styles.detailItem}>
             <span className={`${styles.expand} ${(isHiddenMenuActive && styles.expandActive) || ''}`} />
             <span className={styles.totalHeading}>Grand Total</span>
-            <span className={styles.totalPrice}>{formatToCurrency(validShoppingCart?.totalAmount || 0)}</span>
+            <span className={styles.totalPrice}>{formatToCurrency(shoppingCart.totalAmount)}</span>
           </li>
         </ul>
         <Link className={styles.button} onClick={removeAllShoppingCartItems} href='/'>

@@ -22,7 +22,7 @@ export const AddToCart = ({ product }: { product: Product }) => {
     if (isMaxActiveToastsReached) return;
 
     createToast('success', toastMessage, 3000);
-    incrementShoppingCartItem?.(product, itemQuantity);
+    incrementShoppingCartItem(product, itemQuantity);
   };
 
   return (

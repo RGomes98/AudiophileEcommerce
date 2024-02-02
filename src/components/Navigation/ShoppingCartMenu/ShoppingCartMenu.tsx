@@ -11,16 +11,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const ShoppingCartMenu = () => {
-  const { validShoppingCart, removeAllShoppingCartItems } = useShoppingCart();
+  const { shoppingCart, removeAllShoppingCartItems } = useShoppingCart();
   const { setIsCartMenuOpen } = useAudiophileContext();
   const { createToast } = useToast();
   const { isMounted } = useMounted();
 
-  const isCartFilled = validShoppingCart?.productsList.length;
+  const isCartFilled = shoppingCart.productsList.length;
 
   const handleRemoveAll = () => {
     if (!isCartFilled) return;
-    removeAllShoppingCartItems?.();
+    removeAllShoppingCartItems();
     createToast('success', 'Shopping Cart cleared successfully.', 3000);
   };
 
@@ -29,7 +29,7 @@ export const ShoppingCartMenu = () => {
       {isMounted ? (
         <div className={styles.container}>
           <div className={styles.headingWrapper}>
-            <h6 className={styles.heading}>Cart({validShoppingCart?.itemCount})</h6>
+            <h6 className={styles.heading}>Cart({shoppingCart.itemCount})</h6>
             <button className={styles.removeAllButton} onClick={handleRemoveAll}>
               Remove all
             </button>
@@ -40,7 +40,7 @@ export const ShoppingCartMenu = () => {
             </div>
           ) : (
             <ul className={styles.cartList}>
-              {validShoppingCart?.productsList.map((product) => {
+              {shoppingCart.productsList.map((product) => {
                 const { id, image, name, category, price, quantity } = product;
 
                 return (
@@ -56,13 +56,10 @@ export const ShoppingCartMenu = () => {
               })}
             </ul>
           )}
-
           <div className={styles.checkoutWrapper}>
             <div className={styles.totalWrapper}>
               <span className={styles.totalHeading}>Total</span>
-              <span className={styles.totalPrice}>
-                {formatToCurrency(validShoppingCart?.subtotalAmount || 0)}
-              </span>
+              <span className={styles.totalPrice}>{formatToCurrency(shoppingCart.subtotalAmount)}</span>
             </div>
             <Link className={styles.checkoutButton} onClick={() => setIsCartMenuOpen(false)} href='/checkout'>
               Checkout

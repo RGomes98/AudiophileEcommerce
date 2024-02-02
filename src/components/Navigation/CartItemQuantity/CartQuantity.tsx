@@ -10,7 +10,7 @@ export const CartQuantity = ({ children, product }: { children: number; product:
     <div className={styles.container}>
       <button
         className={styles.quantityButton}
-        onClick={() => decrementShoppingCartItem?.(product)}
+        onClick={() => decrementShoppingCartItem(product)}
         aria-label='decrement-button'
       >
         -
@@ -18,7 +18,7 @@ export const CartQuantity = ({ children, product }: { children: number; product:
       <span className={styles.quantity}>{children}</span>
       <button
         className={styles.quantityButton}
-        onClick={() => incrementShoppingCartItem?.(product, productQuantity)}
+        onClick={() => incrementShoppingCartItem(product, productQuantity)}
         aria-label='increment-button'
       >
         +
