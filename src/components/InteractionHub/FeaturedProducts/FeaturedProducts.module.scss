@@ -32,6 +32,7 @@
 
 .featuredItem:nth-child(2) {
   display: flex;
+  min-height: 20rem;
   background-size: cover;
   background-position: center;
   background-image: url('/assets/images/desktop/image-speaker-zx7.jpg');
@@ -44,7 +45,7 @@
 }
 
 .featuredItem:nth-child(3) .secondaryWrapper {
-  min-height: 12.5rem;
+  min-height: 20rem;
   justify-content: center;
   background-color: variable.$anti-flash-white;
 }
@@ -110,7 +111,7 @@
 }
 
 .emptyBackground {
-  min-height: 12.5rem;
+  min-height: 20rem;
   background-size: cover;
   background-position: center;
   background-image: url('/assets/images/desktop/image-earphones-yx1.jpg');
@@ -191,6 +192,11 @@
   .featuredItem:nth-child(3) .secondaryWrapper {
     padding-inline: 1.5rem;
     padding-block: 2.563rem;
+  }
+
+  .emptyBackground,
+  .featuredItem:nth-child(3) .secondaryWrapper {
+    min-height: 12.5rem;
   }
 }
 
